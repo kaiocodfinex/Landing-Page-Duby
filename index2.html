@@ -15,6 +15,7 @@
     <!-- External Libraries -->
     <!-- GSAP for Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Vanilla Tilt for Dashboard Interaction -->
@@ -564,7 +565,7 @@
 
         @media (max-width: 768px) {
             .hero-headline {
-                font-size: 40px;
+                font-size: 40px !important;
             }
 
             .hero-description {
@@ -589,6 +590,176 @@
 
             .hero::before {
                 width: 100vw;
+            }
+        }
+
+        /* Features Section (Second Fold) */
+        .features {
+            position: relative;
+            padding: 120px 24px;
+            background-color: var(--bg-page);
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            max-width: 600px;
+            margin-bottom: 64px;
+        }
+
+        .features-title {
+            font-size: 42px;
+            line-height: 1.2;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .features-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease, background 0.3s ease;
+            cursor: default;
+        }
+
+        /* Premium Glow Hover Effect */
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(186, 156, 255, 0.15), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(186, 156, 255, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .feature-icon-wrapper {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-icon-wrapper svg {
+            width: 20px;
+            height: 20px;
+            color: #BA9CFF;
+            /* Purple from design system */
+        }
+
+        .feature-content h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-content p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Clients Section (Third Fold) */
+        .clients {
+            padding: 100px 24px;
+            background: linear-gradient(180deg, var(--bg-page) 0%, rgba(8, 5, 24, 0.4) 100%);
+            position: relative;
+            z-index: 10;
+        }
+
+        .clients-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .clients-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 48px;
+            opacity: 0;
+            /* Animated */
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* Changed to 1 column since they are full rows of logos */
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .client-logo {
+            width: 100%;
+            height: auto;
+            min-height: 48px;
+            object-fit: contain;
+            opacity: 0;
+            /* GSAP will animate this */
+            transition: 0.4s transform cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .client-logo:hover {
+            transform: scale(1.02);
+            /* Slight scale to maintain a premium feel */
+        }
+
+        /* Mobile Adjustments for Clients */
+        @media (max-width: 768px) {
+            .clients-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
         }
     </style>
@@ -693,6 +864,81 @@
         </div>
     </section>
 
+    <!-- Features Section / Second Fold -->
+    <section class="features" id="problemas">
+        <div class="features-container">
+            <div class="features-header">
+                <p class="features-subtitle"
+                    style="margin-bottom: 12px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; font-size: 14px; background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                    Improviso custa caro.</p>
+                <h2 class="features-title">Sem dados claros, sua empresa pode estar:</h2>
+            </div>
+
+            <div class="features-grid" id="cards-grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="shopping-cart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Comprando errado</h3>
+                        <p>Estoque parado ou falta de insumos drenam seu caixa. Decisões baseadas em "feeling" geram
+                            perdas ocultas diárias.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="pie-chart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Vendendo sem margem</h3>
+                        <p>Faturar muito não significa lucrar. Descontos excessivos e custos ignorados podem transformar
+                            vendas altas em prejuízo.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="landmark"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Decidindo pelo saldo do banco</h3>
+                        <p>Olhar apenas o saldo atual mascara passivos futuros. Sem gestão de DRE e fluxo de caixa, a
+                            empresa caminha no escuro.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Crescendo sem previsibilidade</h3>
+                        <p>O crescimento caótico quebra operações saudáveis. Sem indicadores (KPIs), escalar o negócio
+                            se torna um risco constante.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section / Third Fold -->
+    <section class="clients" id="clientes">
+        <div class="clients-container">
+            <h4 class="clients-title">Empresas que enxergam além dos dados com a Duby</h4>
+            <div class="clients-grid">
+                <img src="Clientes/Clientes%201.png" alt="Cliente 1" class="client-logo client-anim" />
+                <img src="Clientes/Clientes%202.png" alt="Cliente 2" class="client-logo client-anim" />
+                <img src="Clientes/Clientes%203.png" alt="Cliente 3" class="client-logo client-anim" />
+                <img src="Clientes/Clientes%204.png" alt="Cliente 4" class="client-logo client-anim" />
+            </div>
+        </div>
+    </section>
+
     <!-- Scripts Execution -->
     <script>
         // 1. Initialize Icons
@@ -751,7 +997,68 @@
 
             // Initialize Premium Slider
             initPremiumSlider();
+
+            // Initialize Glowing Cards Hover
+            initGlowingCards();
+
+            // Initialize Scroll Animations for Third Fold
+            initScrollAnimations();
         });
+
+        // Ensure ScrollTrigger recalculates after all heavy images load
+        window.addEventListener("load", () => {
+            ScrollTrigger.refresh();
+        });
+
+        function initScrollAnimations() {
+            // Animate Clients Title
+            gsap.to(".clients-title", {
+                scrollTrigger: {
+                    trigger: ".clients",
+                    start: "top 80%",
+                },
+                y: -10,
+                opacity: 1,
+                duration: 0.8,
+                startAt: { y: 10 },
+                ease: "power3.out"
+            });
+
+            // Staggered Fade Up for Client Logos per row
+            gsap.utils.toArray(".client-anim").forEach((logo, i) => {
+                gsap.set(logo, { y: 30, opacity: 0 }); // Initial State
+
+                gsap.to(logo, {
+                    scrollTrigger: {
+                        trigger: logo,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse" // Allows fade out when scrolling way back up
+                    },
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power3.out"
+                });
+            });
+        }
+
+        function initGlowingCards() {
+            const grid = document.getElementById("cards-grid");
+            const cards = document.querySelectorAll(".feature-card");
+
+            if (!grid || !cards.length) return;
+
+            grid.addEventListener("mousemove", (e) => {
+                for (const card of cards) {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    card.style.setProperty("--mouse-x", `${x}px`);
+                    card.style.setProperty("--mouse-y", `${y}px`);
+                }
+            });
+        }
 
         function initPremiumSlider() {
             const slides = document.querySelectorAll('.db-slide');
