@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Duby - Assessoria Estratégica Inteligente</title>
+    <meta name="description" content="Transforme dados em decisões que aceleram seu crescimento." />
+
+    <!-- Google Fonts for Typography fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External Libraries -->
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Vanilla Tilt for Dashboard Interaction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <style>
+        /* Base / Design System Tokens */
+        :root {
+            --bg-page: #030014;
+            --text-primary: #f4f0ff;
+            --text-secondary: rgba(239, 237, 253, 0.7);
+            --text-muted: rgba(239, 237, 253, 0.5);
+            --gradient-primary: linear-gradient(90.01deg, #e59cff .01%, #ba9cff 50.01%, #9cb2ff 100%);
+            --border-light: rgba(255, 255, 255, 0.08);
+            --border-dim: rgba(255, 255, 255, 0.04);
+            --glass-bg: rgba(255, 255, 255, 0.01);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Generic Font Faces if local not found */
+        @font-face {
+            font-family: 'AeonikPro';
+            src: local('AeonikPro-Medium'), local('Arial');
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: 'Inter V';
+            src: local('Inter-Medium'), local('Arial');
+            font-weight: 500;
+        }
+
+        @font-face {
+            font-family: 'Inter V';
+            src: local('Inter-Regular'), local('Arial');
+            font-weight: 400;
+        }
+
+        /* Resets */
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            font-family: 'Inter V', 'Inter', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            width: 100vw;
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: rgba(147, 130, 255, 0.5);
+            color: #fff;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'AeonikPro', 'Inter', system-ui, sans-serif;
+            font-weight: 500;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1248px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .button {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            border-radius: 8px;
+            color: var(--text-primary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            position: relative;
+            width: max-content;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .button::before,
+        .button::after,
+        .button-border {
+            border-radius: inherit;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .button::before,
+        .button::after {
+            content: "";
+            display: block;
+            transition: .3s opacity cubic-bezier(.6, .6, 0, 1);
+        }
+
+        .button::after {
+            opacity: 0;
+        }
+
+        .button:hover::before {
+            opacity: 0;
+        }
+
+        .button:hover::after {
+            opacity: 1;
+        }
+
+        /* Primary Button */
+        .button-primary .button-border::before {
+            background: linear-gradient(180deg, rgba(207, 184, 255, .24) 0%, rgba(207, 184, 255, 0) 100%),
+                linear-gradient(0deg, rgba(207, 184, 255, .32), rgba(207, 184, 255, .32));
+            border-radius: inherit;
+            content: "";
+            inset: 0;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            padding: 1px;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .button-primary::before {
+            background: linear-gradient(180deg, rgba(60, 8, 126, 0) 0%, rgba(60, 8, 126, .32) 100%), rgba(113, 47, 255, .12);
+            box-shadow: inset 0 0 12px rgba(191, 151, 255, 0.24);
+        }
+
+        .button-primary::after {
+            background: linear-gradient(180deg, rgba(60, 8, 126, 0) 0%, rgba(60, 8, 126, .42) 100%), rgba(113, 47, 255, .24);
+            box-shadow: inset 0 0 12px rgba(191, 151, 255, 0.44);
+        }
+
+        /* Secondary Button */
+        .button-secondary .button-border {
+            border: 1px solid var(--border-light);
+        }
+
+        .button-secondary::before {
+            background: linear-gradient(180deg, rgba(243, 238, 255, 0) 0%, rgba(243, 238, 255, .04) 100%), rgba(147, 130, 255, .01);
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.08);
+        }
+
+        .button-secondary::after {
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.08);
+            background: linear-gradient(180deg, rgba(243, 238, 255, 0) 0%, rgba(243, 238, 255, .05) 100%), rgba(147, 130, 255, .04);
+        }
+
+        /* Hero Layout & Structure */
+        .hero {
+            position: relative;
+            padding-top: 140px;
+            padding-bottom: 80px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Background Effects */
+        .hero::before {
+            content: "";
+            background: radial-gradient(40% 60% at 50% 20%, rgba(113, 47, 255, 0.12) 0%, rgba(3, 0, 20, 0) 100%);
+            display: block;
+            height: 1000px;
+            left: 50%;
+            pointer-events: none;
+            position: absolute;
+            top: -200px;
+            transform: translateX(-50%);
+            width: 1440px;
+            z-index: 0;
+            filter: blur(40px);
+        }
+
+        /* Particles Layer */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Eyebrow / Badge */
+        .hero-badge {
+            isolation: isolate;
+            overflow: hidden;
+            align-items: center;
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            border-radius: 32px;
+            box-shadow: inset 0 -7px 11px rgba(164, 143, 255, 0.12);
+            display: inline-flex;
+            margin: 0 auto 24px;
+            padding: 6px 16px 6px 14px;
+            position: relative;
+            width: max-content;
+            transition: .45s cubic-bezier(.6, .6, 0, 1) box-shadow;
+            opacity: 0;
+            /* JS Will animate */
+        }
+
+        .hero-badge::after {
+            background: linear-gradient(90.01deg, rgba(229, 156, 255, .24) .01%, rgba(186, 156, 255, .24) 50.01%, rgba(156, 178, 255, .24) 100%);
+            border-radius: inherit;
+            content: "";
+            inset: 0;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            padding: 1px;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .hero-badge-icon {
+            margin-right: 8px;
+            color: #E59CFF;
+            width: 16px;
+            height: 16px;
+        }
+
+        .hero-badge-text {
+            background: linear-gradient(0deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), var(--gradient-primary);
+            background-blend-mode: normal, screen;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Headline */
+        .hero-headline {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            opacity: 0;
+        }
+
+        .hero-headline span {
+            background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Description */
+        .hero-description {
+            font-size: 18px;
+            line-height: 28px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 680px;
+            margin: 0 auto 32px;
+            opacity: 0;
+        }
+
+        /* CTAs */
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 40px;
+            opacity: 0;
+        }
+
+        /* Micro Proofs */
+        .hero-proofs {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 80px;
+            flex-wrap: wrap;
+            opacity: 0;
+        }
+
+        .hero-proof-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .hero-proof-item svg {
+            color: #9cb2ff;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Dashboard Wrapper (3D perspective) */
+        .dashboard-wrapper {
+            position: relative;
+            z-index: 10;
+            max-width: 1152px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
+            perspective: 1400px;
+            opacity: 0;
+            /* JS Array */
+        }
+
+        /* Dashboard Glowing Backdrop Layer */
+        .dashboard-wrapper::before {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(147, 130, 255, 0.15) 0%, rgba(3, 0, 20, 0) 70%);
+            filter: blur(60px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Dashboard Container */
+        .dashboard-mockup {
+            background: rgba(8, 5, 24, 0.6);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow:
+                0 40px 100px -20px rgba(0, 0, 0, 0.8),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+                0 0 40px rgba(113, 47, 255, 0.1);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            transform-style: preserve-3d;
+            overflow: hidden;
+            position: relative;
+            transform-origin: top center;
+        }
+
+        /* Top Bar */
+        .db-topbar {
+            height: 52px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--border-dim);
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            position: relative;
+        }
+
+        .db-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .db-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .db-dot.red {
+            background: #FF5F56;
+        }
+
+        .db-dot.yellow {
+            background: #FFBD2E;
+        }
+
+        .db-dot.green {
+            background: #27C93F;
+        }
+
+        .db-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .db-brand svg {
+            width: 14px;
+            height: 14px;
+            color: #BA9CFF;
+        }
+
+        /* Inner Content */
+        .db-content {
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Premium Dashboard Stacked Slider */
+        .db-slider-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            padding: 70px 0 20px 0;
+            position: relative;
+        }
+
+        .db-slider {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            perspective: 2000px;
+            z-index: 10;
+        }
+
+        .db-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(8, 5, 24, 0.8);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 1), 0 -10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transform-origin: top center;
+            opacity: 0;
+            will-change: transform, opacity, filter, z-index;
+            cursor: pointer;
+        }
+
+        .db-slide img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .slider-controls {
+            display: flex;
+            gap: 16px;
+            z-index: 20;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .slider-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+            backdrop-filter: blur(12px);
+            cursor: pointer;
+        }
+
+        .slider-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.1);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 20px rgba(186, 156, 255, 0.2);
+        }
+
+        .slider-btn svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1024px) {
+            .hero-headline {
+                font-size: 56px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 40px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .hero-proofs {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+
+            .hero::before {
+                width: 100vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <!-- Floating Particles Container -->
+        <div class="particles" id="particles-container"></div>
+
+        <!-- Main Hero Content -->
+        <div class="hero-content">
+            <!-- Eyebrow -->
+            <div class="hero-badge">
+                <i data-lucide="zap" class="hero-badge-icon"></i>
+                <div class="hero-badge-text">Inteligência Estratégica para Empresas</div>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="hero-headline"
+                style="font-size: 52px; line-height: 1.15; max-width: 800px; margin: 0 auto 24px;">
+                <span>Sua empresa pode estar<br>crescendo… mas perdendo<br>margem sem perceber.</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="hero-description">
+                A Duby entra na sua operação, organiza seus dados e transforma números em decisões estratégicas que
+                aumentam lucro e reduzem desperdícios.
+            </p>
+
+            <!-- Actions -->
+            <div class="hero-ctas" style="margin-bottom: 12px;">
+                <a href="#diagnostico" class="button button-primary">
+                    <span>Quero meu diagnóstico estratégico gratuito</span>
+                    <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    <div class="button-border"></div>
+                </a>
+            </div>
+
+            <!-- Microtext -->
+            <div style="font-size: 13px; color: var(--text-muted); opacity: 0; margin-bottom: 40px;"
+                class="hero-microtext">
+                Sem compromisso. Avaliação personalizada.
+            </div>
+
+            <!-- Trust / Micro proofs -->
+            <div class="hero-proofs">
+                <div class="hero-proof-item">
+                    <i data-lucide="layout-dashboard"></i> Dashboards claros e executivos
+                </div>
+                <div class="hero-proof-item">
+                    <i data-lucide="activity"></i> Indicadores em tempo real
+                </div>
+                <div class="hero-proof-item">
+                    <i data-lucide="target"></i> Visão estratégica para tomada de decisão
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Mockup -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-mockup" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-perspective="1500"
+                data-tilt-glare="true" data-tilt-max-glare="0.1">
+
+                <!-- Mockup OS Topbar -->
+                <div class="db-topbar">
+                    <div class="db-dots">
+                        <div class="db-dot red"></div>
+                        <div class="db-dot yellow"></div>
+                        <div class="db-dot green"></div>
+                    </div>
+                    <div class="db-brand">
+                        <i data-lucide="layers"></i> Duby Analytics
+                    </div>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div class="db-content" style="padding: 24px;">
+                    <div class="db-slider-container">
+                        <div class="db-slider">
+                            <div class="db-slide">
+                                <img src="Dashs/Captura de Tela 2026-03-06 às 16.41.40.png" alt="Dashboard Principal"
+                                    loading="lazy" />
+                            </div>
+                            <div class="db-slide">
+                                <img src="Dashs/Captura de Tela 2026-03-06 às 16.42.09.png" alt="Dashboard Detalhe 1"
+                                    loading="lazy" />
+                            </div>
+                            <div class="db-slide">
+                                <img src="Dashs/Captura de Tela 2026-03-06 às 16.42.29.png" alt="Dashboard Detalhe 2"
+                                    loading="lazy" />
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev-btn"><i data-lucide="arrow-left"></i></button>
+                            <button class="slider-btn next-btn"><i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts Execution -->
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. Generate Floating Particles
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById("particles-container");
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+
+            for (let i = 0; i < 40; i++) {
+                let p = document.createElement("div");
+                p.className = "particle";
+                container.appendChild(p);
+
+                let size = Math.random() * 3 + 1;
+                gsap.set(p, {
+                    x: Math.random() * w,
+                    y: Math.random() * h,
+                    width: size,
+                    height: size,
+                    opacity: Math.random() * 0.4 + 0.1
+                });
+
+                gsap.to(p, {
+                    y: "-=150",
+                    x: "+=" + (Math.random() * 100 - 50),
+                    duration: Math.random() * 15 + 10,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            }
+
+            // 3. Main GSAP Entrance Animations
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+            // Await a slight delay for aesthetic flow
+            tl.to({}, { duration: 0.2 })
+                .to(".hero-badge", { y: -20, opacity: 1, duration: 0.8, startAt: { y: 20 } })
+                .to(".hero-headline", { y: -20, opacity: 1, duration: 1, startAt: { y: 30 } }, "-=0.6")
+                .to(".hero-description", { y: -20, opacity: 1, duration: 0.8, startAt: { y: 20 } }, "-=0.6")
+                .to(".hero-ctas", { y: -20, opacity: 1, duration: 0.8, startAt: { y: 20 } }, "-=0.6")
+                .to(".hero-microtext", { y: -10, opacity: 1, duration: 0.8, startAt: { y: 10 } }, "-=0.6")
+                .to(".hero-proofs", { y: -20, opacity: 1, duration: 0.8, startAt: { y: 20 } }, "-=0.6")
+                .to(".dashboard-wrapper", {
+                    y: -20,
+                    opacity: 1,
+                    duration: 1.5,
+                    startAt: { y: 100, rotateX: 20, scale: 0.9 },
+                    rotateX: 0,
+                    scale: 1,
+                    ease: "power4.out"
+                }, "-=0.5");
+
+            // Initialize Premium Slider
+            initPremiumSlider();
+        });
+
+        function initPremiumSlider() {
+            const slides = document.querySelectorAll('.db-slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            if (!slides.length) return;
+
+            let currentIndex = 0;
+            let isAnimating = false;
+
+            const updateSlider = () => {
+                isAnimating = true;
+
+                slides.forEach((slide, i) => {
+                    // Logic for 3 elements:
+                    // 0 = active
+                    // 1 = next / top visible stacked
+                    // 2 = last / smallest stacked
+                    let diff = (i - currentIndex + slides.length) % slides.length;
+
+                    let zIndex = slides.length - diff;
+                    let scale = 1 - (diff * 0.06);
+                    // Push up significantly to show behind the active card
+                    let yOffset = -(diff * 40);
+                    let opacity = diff === 0 ? 1 : Math.max(0.1, 0.7 - (diff * 0.25));
+                    let blurFactor = diff === 0 ? 0 : diff * 2.5;
+
+                    gsap.to(slide, {
+                        scale: scale,
+                        y: yOffset,
+                        zIndex: zIndex,
+                        opacity: opacity,
+                        filter: `blur(${blurFactor}px)`,
+                        duration: 0.8,
+                        ease: "power4.out",
+                        onComplete: () => {
+                            if (i === slides.length - 1) {
+                                isAnimating = false;
+                                // Re-initialize icons just in case structure changes
+                                lucide.createIcons();
+                            }
+                        }
+                    });
+
+                    if (diff === 0) {
+                        slide.style.pointerEvents = 'auto';
+                    } else {
+                        slide.style.pointerEvents = 'none';
+                    }
+                });
+            };
+
+            updateSlider();
+
+            nextBtn.addEventListener('click', () => {
+                if (isAnimating) return;
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (isAnimating) return;
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlider();
+            });
+
+            // Click on a blurred slide to bring it directly to front
+            slides.forEach((slide, idx) => {
+                slide.addEventListener('click', () => {
+                    if (idx !== currentIndex && !isAnimating) {
+                        currentIndex = idx;
+                        updateSlider();
+                    }
+                });
+            });
+
+            // Auto Play setup
+            let autoLoop = setInterval(() => nextBtn.click(), 5000);
+
+            // Pause on hover
+            const container = document.querySelector('.db-slider-container');
+            container.addEventListener('mouseenter', () => clearInterval(autoLoop));
+        }
+    </script>
+</body>
+
+</html>
