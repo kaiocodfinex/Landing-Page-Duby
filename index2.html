@@ -1430,6 +1430,270 @@
                 order: -1;
             }
         }
+
+        /* ─── Differentials Section (Seventh Fold) ──────────────────────── */
+        .diff-section {
+            padding: 140px 24px;
+            background: linear-gradient(180deg, var(--bg-page) 0%, #08080e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle ambient glow in the background */
+        .diff-section::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 80%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .diff-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 64px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ─── LEFT: 3D Symbol Visual ─── */
+        .diff-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .diff-symbol-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Spinning ring behind the symbol */
+        .diff-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(186, 156, 255, 0.12);
+            animation: diff-spin 30s linear infinite;
+        }
+
+        .diff-ring-2 {
+            inset: 20px;
+            border-color: rgba(186, 156, 255, 0.07);
+            animation-duration: 50s;
+            animation-direction: reverse;
+        }
+
+        @keyframes diff-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Radial glow beneath the symbol */
+        .diff-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.25) 0%, transparent 70%);
+            animation: diff-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes diff-pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        .diff-symbol-img {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 40px rgba(124, 58, 237, 0.5)) drop-shadow(0 0 80px rgba(186, 156, 255, 0.2));
+            animation: diff-float 6s ease-in-out infinite;
+        }
+
+        @keyframes diff-float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotateY(0deg);
+            }
+
+            25% {
+                transform: translateY(-12px) rotateY(4deg);
+            }
+
+            75% {
+                transform: translateY(8px) rotateY(-4deg);
+            }
+        }
+
+        /* ─── RIGHT: Content ─── */
+        .diff-content {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+            /* slightly tighter to match image height */
+        }
+
+        .diff-header {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .diff-eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #BA9CFF;
+        }
+
+        .diff-title {
+            font-size: 42px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .diff-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        /* Feature bullets */
+        .diff-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .diff-feature {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 18px 20px;
+            /* more compact */
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.015);
+            transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Mouse glow effect on hover (same as Feature Cards) */
+        .diff-feature::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(186, 156, 255, 0.08) 0%, transparent 70%);
+            left: var(--mx, -9999px);
+            top: var(--my, -9999px);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: opacity 0.2s;
+            border-radius: 50%;
+        }
+
+        .diff-feature:hover {
+            border-color: rgba(186, 156, 255, 0.15);
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateX(4px);
+        }
+
+        .diff-feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(186, 156, 255, 0.1);
+            border: 1px solid rgba(186, 156, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #BA9CFF;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .diff-feature:hover .diff-feature-icon {
+            background: rgba(186, 156, 255, 0.18);
+            border-color: rgba(186, 156, 255, 0.5);
+        }
+
+        .diff-feature-body h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0 0 4px;
+            line-height: 1.3;
+        }
+
+        .diff-feature-body p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .diff-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .diff-visual {
+                order: -1;
+            }
+
+            .diff-symbol-wrap {
+                max-width: 280px;
+            }
+
+            .diff-glow {
+                width: 200px;
+                height: 200px;
+            }
+
+            .diff-title {
+                font-size: 32px;
+            }
+        }
     </style>
 </head>
 
@@ -1922,6 +2186,77 @@
         </div>
     </section>
 
+    <!-- Differentials Section / Seventh Fold -->
+    <section class="diff-section" id="diferenciais">
+        <div class="diff-container">
+
+            <!-- LEFT: 3D Brand Symbol -->
+            <div class="diff-visual diff-anim">
+                <div class="diff-symbol-wrap">
+                    <!-- Ambient rings -->
+                    <div class="diff-ring"></div>
+                    <div class="diff-ring diff-ring-2"></div>
+                    <!-- Pulse glow -->
+                    <div class="diff-glow"></div>
+                    <!-- 3D Symbol -->
+                    <img class="diff-symbol-img" src="Marca/Camada%201.png" alt="Duby 3D Symbol">
+                </div>
+            </div>
+
+            <!-- RIGHT: Content -->
+            <div class="diff-content">
+                <div class="diff-header diff-anim">
+                    <p class="diff-eyebrow">Nossos diferenciais</p>
+                    <h2 class="diff-title">Por que a Duby n&atilde;o &eacute; um BI comum?</h2>
+                    <p class="diff-subtitle">Enquanto muitas empresas vendem dashboards, n&oacute;s estruturamos a
+                        gest&atilde;o atrav&eacute;s de dados.</p>
+                </div>
+
+                <div class="diff-features">
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="search"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Diagn&oacute;stico antes da tecnologia</h4>
+                            <p>Antes de construir qualquer painel, entendemos sua opera&ccedil;&atilde;o, gargalos e
+                                objetivos estrat&eacute;gicos.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="target"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Indicadores que orientam decis&otilde;es</h4>
+                            <p>N&atilde;o entregamos gr&aacute;ficos. Definimos KPIs que mostram onde agir para proteger
+                                margem e crescer com controle.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="calendar-check"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Acompanhamento estrat&eacute;gico cont&iacute;nuo</h4>
+                            <p>Relat&oacute;rios isolados n&atilde;o mudam empresas. Realizamos reuni&otilde;es mensais
+                                para analisar dados, definir plano de a&ccedil;&atilde;o e ajustar a estrat&eacute;gia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="git-merge"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Integra&ccedil;&atilde;o entre &aacute;reas</h4>
+                            <p>Compras, Comercial e Financeiro n&atilde;o funcionam isolados. Conectamos tudo em uma
+                                vis&atilde;o estrat&eacute;gica &uacute;nica com foco no impacto financeiro real.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Scripts Execution -->
     <script>
         // 1. Initialize Icons
@@ -2060,6 +2395,31 @@
                 ease: "power3.out"
             });
 
+            // Differentials Section Animations
+            gsap.from(".diff-anim", {
+                scrollTrigger: {
+                    trigger: ".diff-section",
+                    start: "top 75%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1.1,
+                stagger: 0.25,
+                ease: "power3.out"
+            });
+
+            gsap.from(".diff-feat-anim", {
+                scrollTrigger: {
+                    trigger: ".diff-features",
+                    start: "top 80%",
+                },
+                x: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.12,
+                ease: "power3.out"
+            });
+
             // Staggered Fade Up for Client Logos per row
             gsap.utils.toArray(".client-anim").forEach((logo, i) => {
                 gsap.set(logo, { y: 30, opacity: 0 }); // Initial State
@@ -2095,6 +2455,21 @@
                 }
             });
         }
+
+        // Mouse glow for Differentials feature cards
+        document.querySelectorAll('.diff-feature').forEach(function (card) {
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                card.style.setProperty('--mx', x + 'px');
+                card.style.setProperty('--my', y + 'px');
+            });
+            card.addEventListener('mouseleave', function () {
+                card.style.setProperty('--mx', '-9999px');
+                card.style.setProperty('--my', '-9999px');
+            });
+        });
 
         function initPremiumSlider() {
             const slides = document.querySelectorAll('.db-slide');
