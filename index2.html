@@ -1166,6 +1166,270 @@
                 font-size: 32px;
             }
         }
+
+        /* Interactive Dashboards Section (Sixth Fold) */
+        .dash-section {
+            padding: 120px 24px;
+            background-color: var(--bg-page);
+            position: relative;
+            z-index: 10;
+        }
+
+        .dash-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .dash-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .dash-header h2 {
+            font-size: 40px;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .dash-header p {
+            font-size: 18px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Fixed Dark Card for Active Tab (Left Side) */
+        .dash-info-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            min-height: 380px;
+        }
+
+        .dash-info-card::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 40px;
+            width: 3px;
+            height: 48px;
+            background: #BA9CFF;
+            border-radius: 0 4px 4px 0;
+            filter: drop-shadow(0 0 8px rgba(186, 156, 255, 0.6));
+        }
+
+        .dash-info-step {
+            display: none;
+            flex-direction: column;
+            gap: 24px;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .dash-info-step.active {
+            display: flex;
+        }
+
+        .dash-info-step-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(186, 156, 255, 0.15);
+            border: 1px solid rgba(186, 156, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #BA9CFF;
+        }
+
+        .dash-info-step h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+            margin: 0;
+        }
+
+        .dash-info-step p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .dash-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: filter 0.3s;
+            margin-top: 8px;
+            width: max-content;
+        }
+
+        .dash-btn:hover {
+            filter: brightness(1.1);
+        }
+
+        .dash-idle-tabs {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding-left: 16px;
+        }
+
+        .dash-idle-tab {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .dash-idle-tab:hover {
+            opacity: 0.9;
+            transform: translateX(4px);
+        }
+
+        .dash-idle-tab .tab-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--text-muted);
+        }
+
+        .dash-idle-tab h3 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dash-visuals {
+            position: relative;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* Minimal border */
+            background: rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            width: 100%;
+            height: 600px;
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dash-track {
+            display: flex;
+            flex-direction: row;
+            /* Horizontal Slide */
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+
+        .dash-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            padding: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dash-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* Stop clipping */
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Carousel Controls */
+        .dash-controls {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            gap: 12px;
+            z-index: 20;
+        }
+
+        .dash-control-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(30, 30, 35, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dash-control-btn:hover {
+            background: rgba(50, 50, 60, 0.9);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 1024px) {
+            .dash-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .dash-visuals {
+                height: 400px;
+                order: -1;
+            }
+        }
     </style>
 </head>
 
@@ -1556,6 +1820,108 @@
         </div>
     </section>
 
+    <!-- Interactive Dashboards Section / Sixth Fold -->
+    <section class="dash-section" id="funcionalidades">
+        <div class="dash-container">
+            <!-- Left: Text and Ghost Tabs -->
+            <div class="dash-content">
+                <div class="dash-header dash-anim">
+                    <h2>Domine seus números e potencialize sua operação</h2>
+                    <p>Módulos estruturados para conectar cada área do seu negócio com métricas de alta precisão e
+                        estratégias claras.</p>
+                </div>
+
+                <div class="dash-info-card dash-anim" id="dash-info-card">
+                    <!-- Step 0 Content (Initial/Active) -->
+                    <div class="dash-info-step active" data-step="0">
+                        <div class="dash-info-step-header">
+                            <div class="info-icon"><i data-lucide="pie-chart"></i></div>
+                            <h3>Gestão Financeira</h3>
+                        </div>
+                        <p>Este módulo financeiro estrutura os principais indicadores do seu negócio e transforma
+                            números em direcionamento estratégico. Você passa a enxergar margem real, fluxo de caixa
+                            projetado, impacto das compras no lucro e evolução do resultado com clareza.<br><br>Não é
+                            apenas acompanhamento financeiro. É controle, previsibilidade e decisão com segurança.</p>
+                        <a href="#contato" class="dash-btn">Agendar análise gratuita</a>
+                    </div>
+
+                    <!-- Step 1 Content -->
+                    <div class="dash-info-step" data-step="1">
+                        <div class="dash-info-step-header">
+                            <div class="info-icon"><i data-lucide="shopping-cart"></i></div>
+                            <h3>Inteligência de Compras</h3>
+                        </div>
+                        <p>Este módulo estrutura a inteligência de compras da sua empresa, conectando consumo, estoque e
+                            impacto financeiro. Você passa a enxergar onde sua margem está sendo comprometida, quais
+                            produtos imobilizam capital e onde existem oportunidades reais de negociação com
+                            fornecedores.<br><br>Não é apenas controle de estoque. É proteção de caixa e aumento de
+                            eficiência operacional.</p>
+                        <a href="#contato" class="dash-btn">Agendar análise gratuita</a>
+                    </div>
+
+                    <!-- Step 2 Content -->
+                    <div class="dash-info-step" data-step="2">
+                        <div class="dash-info-step-header">
+                            <div class="info-icon"><i data-lucide="trending-up"></i></div>
+                            <h3>Inteligência Comercial</h3>
+                        </div>
+                        <p>Este módulo estrutura a inteligência comercial da sua empresa, conectando vendas, clientes e
+                            resultado financeiro em uma visão estratégica única. Você passa a enxergar não apenas quanto
+                            vende, mas onde está crescendo, onde está perdendo oportunidades e qual é o impacto real das
+                            decisões comerciais na margem.<br><br>Não é apenas acompanhamento de faturamento. É
+                            previsibilidade, performance e crescimento orientado por dados.</p>
+                        <a href="#contato" class="dash-btn">Agendar análise gratuita</a>
+                    </div>
+                </div>
+
+                <!-- Secondary Titles (Ghosted/Idle items under the card) -->
+                <div class="dash-idle-tabs dash-anim">
+                    <div class="dash-idle-tab" data-target="0" style="display: none;">
+                        <div class="tab-icon"><i data-lucide="pie-chart"></i></div>
+                        <h3>Gestão Financeira</h3>
+                    </div>
+                    <div class="dash-idle-tab" data-target="1">
+                        <div class="tab-icon"><i data-lucide="shopping-cart"></i></div>
+                        <h3>Inteligência de Compras</h3>
+                    </div>
+                    <div class="dash-idle-tab" data-target="2">
+                        <div class="tab-icon"><i data-lucide="trending-up"></i></div>
+                        <h3>Inteligência Comercial</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Sliding Visuals -->
+            <div class="dash-visuals dash-anim">
+                <div class="dash-track" id="dash-slider">
+                    <!-- Object-fit contain to preserve all info in dash -->
+                    <div class="dash-slide">
+                        <img src="Dashs/Captura%20de%20Tela%202026-03-06%20%C3%A0s%2016.41.40.png"
+                            alt="Dashboard Financeiro">
+                    </div>
+                    <div class="dash-slide">
+                        <img src="Dashs/Captura%20de%20Tela%202026-03-06%20%C3%A0s%2016.42.09.png"
+                            alt="Dashboard Compras">
+                    </div>
+                    <div class="dash-slide">
+                        <img src="Dashs/Captura%20de%20Tela%202026-03-06%20%C3%A0s%2016.42.29.png"
+                            alt="Dashboard Comercial">
+                    </div>
+                </div>
+
+                <!-- Reference Carousel Nav Buttons -->
+                <div class="dash-controls">
+                    <button class="dash-control-btn" id="dash-prev">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button class="dash-control-btn" id="dash-next">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Scripts Execution -->
     <script>
         // 1. Initialize Icons
@@ -1681,6 +2047,19 @@
                 ease: "power4.out"
             });
 
+            // Dashboards Section Animations
+            gsap.from(".dash-anim", {
+                scrollTrigger: {
+                    trigger: ".dash-section",
+                    start: "top 75%",
+                },
+                y: 40,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out"
+            });
+
             // Staggered Fade Up for Client Logos per row
             gsap.utils.toArray(".client-anim").forEach((logo, i) => {
                 gsap.set(logo, { y: 30, opacity: 0 }); // Initial State
@@ -1799,6 +2178,61 @@
             const container = document.querySelector('.db-slider-container');
             container.addEventListener('mouseenter', () => clearInterval(autoLoop));
         }
+
+        // ─── Dashboard Modules Carousel ───────────────────────────────────────
+        (function initDashCarousel() {
+            const track = document.getElementById('dash-slider');
+            const prevBtn = document.getElementById('dash-prev');
+            const nextBtn = document.getElementById('dash-next');
+            const steps = document.querySelectorAll('.dash-info-step');
+            const idleTabs = document.querySelectorAll('.dash-idle-tab');
+
+            if (!track || !steps.length) return;
+
+            let current = 0;
+            const total = steps.length;
+
+            function goTo(index) {
+                // loop-around
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+                current = index;
+
+                // 1. Slide images horizontally
+                track.style.transform = `translateX(-${current * 100}%)`;
+
+                // 2. Show the right text card
+                steps.forEach(function (step) {
+                    var s = parseInt(step.getAttribute('data-step'), 10);
+                    if (s === current) {
+                        step.classList.add('active');
+                    } else {
+                        step.classList.remove('active');
+                    }
+                });
+
+                // 3. Hide current ghost-tab, show the others
+                idleTabs.forEach(function (tab) {
+                    var t = parseInt(tab.getAttribute('data-target'), 10);
+                    if (t === current) {
+                        tab.style.display = 'none';
+                    } else {
+                        tab.style.display = 'flex';
+                    }
+                });
+            }
+
+            // Arrow Buttons
+            if (prevBtn) prevBtn.addEventListener('click', function () { goTo(current - 1); });
+            if (nextBtn) nextBtn.addEventListener('click', function () { goTo(current + 1); });
+
+            // Ghost Tabs
+            idleTabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    goTo(parseInt(tab.getAttribute('data-target'), 10));
+                });
+            });
+        })();
     </script>
 </body>
 
