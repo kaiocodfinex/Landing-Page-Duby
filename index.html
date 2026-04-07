@@ -688,167 +688,90 @@
         </div>
     </section>
 
-    <!-- Pricing Section / Eighth Fold -->
+    <!-- Princing Section / Eighth Fold -->
     <section class="pricing-section" id="pacotes">
         <div class="pricing-container">
 
-            <div class="pricing-header prc-anim">
-                <div class="pricing-eyebrow">Pacotes</div>
-                <h2 class="pricing-title">Ferramentas mostram dados. A Duby <span>transforma dados em
-                        estrat&eacute;gia.</span></h2>
+            <div class="pricing-header prc-anim" style="margin-bottom: 40px;">
+                <div class="pricing-eyebrow">O que voc&ecirc; recebe</div>
+                <h2 class="pricing-title">Ferramentas mostram dados. A Duby <span>transforma dados em estrat&eacute;gia.</span></h2>
                 <p class="pricing-subtitle">Projetos conforme maturidade e complexidade da empresa.</p>
             </div>
 
-            <div class="pricing-grid">
+            <style>
+                /* Efeito de blur premium nos demais elementos quando um recebe hover */
+                .blur-effect-container:hover .diff-feature:not(:hover) {
+                    filter: blur(4px);
+                    opacity: 0.6;
+                    transform: scale(0.98);
+                }
+                .blur-effect-container .diff-feature {
+                    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+                    cursor: default;
+                }
+                .blur-effect-container .diff-feature:hover {
+                    transform: scale(1.02);
+                    z-index: 10;
+                    border-color: rgba(147, 130, 255, 0.4);
+                }
+            </style>
 
-                <!-- Plan 1: Essencial -->
-                <div class="pricing-card pricing-card-default prc-card-anim">
-                    <div class="pricing-card-header">
-                        <h3 class="pricing-card-name">Essencial</h3>
-                        <div class="pricing-card-category">Estrutura&ccedil;&atilde;o Inicial</div>
-                        <p class="pricing-card-desc">Para empresas que precisam organizar dados e criar base
-                            estrat&eacute;gica.</p>
-                    </div>
+            <div class="diff-features blur-effect-container" style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
 
-                    <div class="pricing-features-list">
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Diagn&oacute;stico estrat&eacute;gico</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Estrutura&ccedil;&atilde;o dos 3 m&oacute;dulos
-                                (Financeiro, Comercial, Compras)</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Implanta&ccedil;&atilde;o dos dashboards</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Treinamento de usabilidade dos dashboards</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Suporte voltado &agrave; ferramenta</div>
-                        </div>
-                    </div>
-
-                    <div class="pricing-card-spacer"></div>
-
-                    <div class="pricing-card-footer">
-                        <p class="pricing-target">
-                            <strong>Indicado para:</strong>
-                            empresas que ainda decidem no escuro.
-                        </p>
-                        <a href="#diagnostico" class="pricing-btn pricing-btn-default">Quero esse plano</a>
+                <!-- Item 1 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="database"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Integração de Dados</h4>
+                        <p>Conexão com seu ERP, planilha ou sistema de gestão</p>
                     </div>
                 </div>
 
-                <!-- Plan 2: Estratégico (Popular) -->
-                <div class="pricing-card pricing-card-popular prc-card-anim">
-                    <div class="pricing-badge">Mais escolhido</div>
-                    <div class="pricing-card-header">
-                        <h3 class="pricing-card-name">Estrat&eacute;gico</h3>
-                        <div class="pricing-card-category">Gest&atilde;o Orientada por Dados</div>
-                        <p class="pricing-card-desc">Para empresas que querem crescimento com controle.</p>
-                    </div>
-
-                    <div class="pricing-features-list">
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Tudo do Essencial</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">2 reuni&otilde;es estrat&eacute;gicas por m&ecirc;s</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">An&aacute;lises comparativas mensais</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Insights personalizados</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Ajustes cont&iacute;nuos de indicadores</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Relat&oacute;rio executivo mensal</div>
-                        </div>
-                    </div>
-
-                    <div class="pricing-card-spacer"></div>
-
-                    <div class="pricing-card-footer">
-                        <p class="pricing-target">
-                            <strong>Indicado para:</strong>
-                            empresas em crescimento que precisam previsibilidade.
-                        </p>
-                        <a href="#diagnostico" class="pricing-btn pricing-btn-popular">Quero esse plano</a>
+                <!-- Item 2 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="layout-dashboard"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Visão Completa</h4>
+                        <p>3 dashboards prontos: Financeiro, Comercial e Compras</p>
                     </div>
                 </div>
 
-                <!-- Plan 3: Executivo -->
-                <div class="pricing-card pricing-card-default prc-card-anim">
-                    <div class="pricing-card-header">
-                        <h3 class="pricing-card-name">Executivo</h3>
-                        <div class="pricing-card-category">Consultoria Avan&ccedil;ada</div>
-                        <p class="pricing-card-desc">Para empresas que querem escalar com intelig&ecirc;ncia.</p>
-                    </div>
-
-                    <div class="pricing-features-list">
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Tudo do Estrat&eacute;gico</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Reuni&otilde;es semanais</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Projeto de an&aacute;lise de dados personalizados sob
-                                demanda</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Time especializado</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Automa&ccedil;&otilde;es em RPA</div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Relat&oacute;rios automatizados integrados ao WhatsApp
-                            </div>
-                        </div>
-                        <div class="pricing-feature-item">
-                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
-                            <div class="pricing-feature-text">Planejamento estrat&eacute;gico baseado em dados</div>
-                        </div>
-                    </div>
-
-                    <div class="pricing-card-spacer"></div>
-
-                    <div class="pricing-card-footer">
-                        <p class="pricing-target">
-                            <strong>Indicado para:</strong>
-                            empresas estruturadas que querem escalar.
-                        </p>
-                        <a href="#diagnostico" class="pricing-btn pricing-btn-default">Quero esse plano</a>
+                <!-- Item 3 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="bar-chart-3"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Métricas do seu Setor</h4>
+                        <p>Indicadores pré-configurados para o seu segmento</p>
                     </div>
                 </div>
 
-            </div>
+                <!-- Item 4 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="users"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Capacitação</h4>
+                        <p>Treinamento online de uso para você e sua equipe</p>
+                    </div>
+                </div>
 
-            <div class="pricing-disclaimer prc-anim">
-                * O escopo e o investimento podem variar conforme a complexidade da opera&ccedil;&atilde;o, qualidade
-                das bases de dados e n&iacute;vel de integra&ccedil;&atilde;o do sistema utilizado pela empresa.
+                <!-- Item 5 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="headset"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Atendimento Dedicado</h4>
+                        <p>Suporte para dúvidas de operação da ferramenta</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="refresh-cw"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Dados em Tempo Real</h4>
+                        <p>Atualização automática dos dados</p>
+                    </div>
+                </div>
+
             </div>
 
         </div>
