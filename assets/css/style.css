@@ -1882,6 +1882,147 @@
             }
         }
 
+        /* ─── Solution Section (O que a Duby faz + vídeo) ─── */
+        .solution-section {
+            background: linear-gradient(180deg, #08080e 0%, var(--bg-page) 100%);
+        }
+
+        .solution-section .diff-container {
+            grid-template-columns: 0.8fr 1.2fr;
+        }
+
+        .solution-video-stage {
+            position: relative;
+            width: 100%;
+            max-width: 440px;
+            aspect-ratio: 1 / 1.25;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .solution-video-stage .diff-ring {
+            inset: auto;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+
+        .solution-video-stage .diff-ring-2 {
+            width: calc(100% - 40px);
+        }
+
+        .solution-video-frame {
+            position: relative;
+            z-index: 2;
+            width: 300px;
+            max-width: 100%;
+            aspect-ratio: 9 / 16;
+            border-radius: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(147, 130, 255, 0.25);
+            background: #0A0714;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(124, 58, 237, 0.25);
+        }
+
+        .solution-video {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .solution-sound-btn {
+            position: absolute;
+            right: 14px;
+            bottom: 14px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(186, 156, 255, 0.3);
+            background: rgba(10, 7, 20, 0.6);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s, border-color 0.3s, transform 0.3s;
+        }
+
+        .solution-sound-btn:hover {
+            background: rgba(124, 58, 237, 0.6);
+            border-color: rgba(186, 156, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .solution-sound-btn:focus-visible {
+            outline: 2px solid #BA9CFF;
+            outline-offset: 2px;
+        }
+
+        .solution-sound-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* 6 decisões em grade 2x3 para acompanhar a altura do vídeo */
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .solution-features .diff-feature {
+            flex-direction: column;
+            gap: 14px;
+            padding: 20px;
+        }
+
+        .solution-features .diff-feature:hover {
+            transform: translateY(-3px);
+        }
+
+        .solution-features .diff-feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+        }
+
+        .solution-features .diff-feature-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .solution-features .diff-feature-body h4 {
+            font-size: 15px;
+        }
+
+        @media (max-width: 1024px) {
+            .solution-section .diff-container {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-video-stage {
+                max-width: 320px;
+            }
+
+            .solution-video-frame {
+                width: 240px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .solution-features {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-features .diff-feature {
+                flex-direction: row;
+                gap: 16px;
+            }
+        }
+
         /* ─── Pricing Section (Eighth Fold) ──────────────────────── */
         .pricing-section {
             padding: 140px 24px;

@@ -148,30 +148,39 @@
             });
 
             // Differentials Section Animations
-            gsap.from(".diff-anim", {
-                scrollTrigger: {
-                    trigger: ".diff-section",
-                    start: "top 75%",
-                },
-                y: 60,
-                opacity: 0,
-                duration: 1.5,
-                stagger: 0.3,
-                ease: "power3.out",
-                clearProps: "all"
+            // One trigger per section/list, so each block animates when it enters the viewport
+            document.querySelectorAll(".diff-section").forEach((section) => {
+                const items = section.querySelectorAll(".diff-anim");
+                if (!items.length) return;
+                gsap.from(items, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 75%",
+                    },
+                    y: 60,
+                    opacity: 0,
+                    duration: 1.5,
+                    stagger: 0.3,
+                    ease: "power3.out",
+                    clearProps: "all"
+                });
             });
 
-            gsap.from(".diff-feat-anim", {
-                scrollTrigger: {
-                    trigger: ".diff-features",
-                    start: "top 80%",
-                },
-                y: 30, /* Animate vertically to guarantee NO horizontal misalignment bugs */
-                opacity: 0,
-                duration: 1.2,
-                stagger: 0.2,
-                ease: "power3.out",
-                clearProps: "all"
+            document.querySelectorAll(".diff-features").forEach((list) => {
+                const items = list.querySelectorAll(".diff-feat-anim");
+                if (!items.length) return;
+                gsap.from(items, {
+                    scrollTrigger: {
+                        trigger: list,
+                        start: "top 80%",
+                    },
+                    y: 30, /* Animate vertically to guarantee NO horizontal misalignment bugs */
+                    opacity: 0,
+                    duration: 1.2,
+                    stagger: 0.2,
+                    ease: "power3.out",
+                    clearProps: "all"
+                });
             });
 
             // Pricing Section Animations
@@ -581,6 +590,23 @@
             });
         }
         initMobileMenu();
+
+        // Solution section video: sound toggle (video always starts muted)
+        function initSolutionVideo() {
+            const video = document.getElementById('solutionVideo');
+            const btn = document.getElementById('solutionSoundBtn');
+            if (!video || !btn) return;
+
+            btn.addEventListener('click', () => {
+                video.muted = !video.muted;
+                if (!video.muted) video.play().catch(() => {});
+                btn.setAttribute('aria-pressed', String(!video.muted));
+                btn.setAttribute('aria-label', video.muted ? 'Ativar som do vídeo' : 'Desativar som do vídeo');
+                btn.innerHTML = `<i data-lucide="${video.muted ? 'volume-x' : 'volume-2'}"></i>`;
+                lucide.createIcons();
+            });
+        }
+        initSolutionVideo();
 
         // Re-initialize lucide icons for the new elements
         lucide.createIcons();
