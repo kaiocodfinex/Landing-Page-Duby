@@ -1141,6 +1141,48 @@
 
     <!-- Scripts Execution -->
     <script src="assets/js/main.js"></script>
+    
+    <!-- Webhook Duby -->
+<script>
+(function () {
+  const WEBHOOK_URL = 'https://n8n.sunads.com.br/webhook/duby';
+
+  const form = document.getElementById('leadCaptureForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function () {
+    const payload = {
+      plano: form.plano?.value || '',
+      empresa: form.empresa?.value || '',
+      segmento: form.segmento?.value || '',
+      colaboradores: form.colaboradores?.value || '',
+      telefone: form.telefone?.value || '',
+      email: form.email?.value || '',
+      origem: 'Landing Page Duby',
+      url: window.location.href,
+      referrer: document.referrer || 'direto',
+      user_agent: navigator.userAgent,
+      timestamp: new Date().toISOString()
+    };
+
+    // Só dispara se os campos obrigatórios estiverem preenchidos
+    if (!payload.plano || !payload.empresa || !payload.telefone || !payload.email) {
+      return;
+    }
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+        keepalive: true
+      });
+    } catch (err) {
+      console.error('Erro ao enviar webhook Duby:', err);
+    }
+  }, true); // capture=true: roda antes do handler do main.js
+})();
+</script>
 </body>
 
 </html>
