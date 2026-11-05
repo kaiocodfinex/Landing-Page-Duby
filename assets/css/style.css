@@ -2276,6 +2276,83 @@
             margin-bottom: 4px;
         }
 
+        /* ─── Planos Duby (preço, destaque leve, CTA único) ─── */
+        .plans-section {
+            padding-top: 40px;
+        }
+
+        .plans-section .pricing-header {
+            margin-bottom: 64px;
+        }
+
+        .pricing-card-price {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding-top: 24px;
+            margin-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .pricing-price-prefix {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .pricing-price-value {
+            font-size: 36px;
+            font-weight: 600;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .pricing-price-period {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0;
+            margin-left: 4px;
+        }
+
+        .plans-section .pricing-features-list {
+            margin-bottom: 0;
+        }
+
+        /* Destaque leve: sem selo, borda e brilho mais suaves que o "popular" original */
+        .pricing-card-featured {
+            border-color: rgba(186, 156, 255, 0.35);
+            box-shadow: 0 0 60px -24px rgba(186, 156, 255, 0.22);
+        }
+
+        .pricing-card-featured:hover {
+            transform: translateY(-8px);
+        }
+
+        .plans-cta {
+            margin-top: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .plans-cta p {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 520px;
+        }
+
+        .deliverables-note {
+            max-width: 900px;
+            margin: 20px auto 0;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
         /* Custom Button for Pricing */
         .pricing-btn {
             display: flex;

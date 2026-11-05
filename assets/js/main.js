@@ -184,17 +184,21 @@
             });
 
             // Pricing Section Animations
-            gsap.from(".prc-anim", {
-                scrollTrigger: {
-                    trigger: ".pricing-section",
-                    start: "top 75%",
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1.4,
-                stagger: 0.3,
-                ease: "power3.out",
-                clearProps: "all"
+            document.querySelectorAll(".pricing-section").forEach((section) => {
+                const items = section.querySelectorAll(".prc-anim");
+                if (!items.length) return;
+                gsap.from(items, {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 75%",
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 1.4,
+                    stagger: 0.3,
+                    ease: "power3.out",
+                    clearProps: "all"
+                });
             });
 
             gsap.from(".prc-card-anim", {
