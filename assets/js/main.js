@@ -313,7 +313,7 @@
                     let isValid = true;
 
                     // Validate Required fields
-                    const requiredFields = ['plano', 'empresa', 'telefone', 'email'];
+                    const requiredFields = ['nome', 'telefone', 'empresa', 'erp', 'email', 'plano'];
                     requiredFields.forEach(id => {
                         const input = document.getElementById(id);
                         if (!input.value.trim()) {
