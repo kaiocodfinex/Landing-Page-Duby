@@ -612,6 +612,47 @@
         }
         initSolutionVideo();
 
+        // Testimonial videos: play with sound on click, native controls while playing,
+        // only one plays at a time
+        function initTestimonialVideos() {
+            const cards = document.querySelectorAll('.testimonial-video-card');
+            const videos = [...cards].map(card => card.querySelector('video'));
+
+            cards.forEach((card) => {
+                const video = card.querySelector('video');
+                const btn = card.querySelector('.testimonial-play-btn');
+                if (!video || !btn) return;
+
+                btn.addEventListener('click', () => {
+                    videos.forEach(v => { if (v !== video) v.pause(); });
+                    video.controls = true;
+                    video.play().catch(() => {});
+                });
+                video.addEventListener('play', () => {
+                    videos.forEach(v => { if (v !== video) v.pause(); });
+                    card.classList.add('is-playing');
+                });
+                video.addEventListener('ended', () => {
+                    card.classList.remove('is-playing');
+                    video.controls = false;
+                    video.load(); // back to the poster
+                });
+            });
+
+            if (cards.length) {
+                gsap.from(cards, {
+                    scrollTrigger: { trigger: '.testimonial-videos', start: 'top 80%' },
+                    y: 40,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: 'power3.out',
+                    clearProps: 'all'
+                });
+            }
+        }
+        initTestimonialVideos();
+
         // Re-initialize lucide icons for the new elements
         lucide.createIcons();
 
