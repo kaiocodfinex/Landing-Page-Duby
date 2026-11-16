@@ -1,3 +1,8 @@
 .DS_Store
 .superpowers/
 docs/
+
+# Existem só no servidor (Hostinger), fora do Git: se entrarem no repo o deploy trava
+obrigado.html
+robots.txt
+sitemap.xml
