@@ -2476,14 +2476,31 @@ body.is-locked {
         flex: 1 1 100%;
     }
 
+    .hero {
+        padding-bottom: 28px;
+    }
+
+    .hero-inner {
+        row-gap: 52px;
+    }
+
     .hero-proofs {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px 14px;
-        margin-top: 36px;
+        gap: 22px 12px;
+        margin-top: -12px;
+        padding-top: 26px;
+        text-align: center;
     }
 
     .hero-proofs li {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 8px;
         font-size: 13px;
+    }
+
+    .partners {
+        padding-top: 32px;
     }
 
     .mg-frame {
