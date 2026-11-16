@@ -1830,11 +1830,25 @@ h2 {
     margin-top: 18px;
 }
 
-.sim-note {
+/* Implementação: só informa que existe, sem valor (definida na reunião) */
+.sim-impl,
+.lead-summary .ls-impl {
     margin-top: 12px;
-    font-size: 12px;
-    text-align: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    line-height: 1.45;
     color: var(--ink-3);
+}
+
+.lead-summary .ls-impl {
+    margin-top: 10px;
+    padding-top: 10px;
+    font-size: 12.5px;
+}
+
+.sim.is-empty .sim-impl {
+    display: none;
 }
 
 .sim.is-empty .sim-total-value {

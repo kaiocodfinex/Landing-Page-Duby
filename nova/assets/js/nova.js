@@ -593,7 +593,8 @@
         if (fromSim && r.valido) {
             summary.innerHTML = `
                 <div class="ls-mods">${mods.map(m => `<span>${NOMES[m]}</span>`).join('')}${ia ? '<span>Agentes de IA</span>' : ''}</div>
-                <div class="ls-total"><span>Plano ${PERIODO_NOME[periodo]}${r.meses > 1 ? ` · cobrança de ${formatarBRL(r.totalPeriodo)}` : ''}</span><strong>${formatarBRL(r.totalMensal)}/mês</strong></div>`;
+                <div class="ls-total"><span>Plano ${PERIODO_NOME[periodo]}${r.meses > 1 ? ` · cobrança de ${formatarBRL(r.totalPeriodo)}` : ''}</span><strong>${formatarBRL(r.totalMensal)}/mês</strong></div>
+                <p class="ls-impl">+ Implementação conforme o seu sistema, definida na reunião.</p>`;
             set('modulos', mods.map(m => NOMES[m]).join(', '));
             set('periodo', periodo);
             set('agentes_ia', ia ? 'sim' : 'não');
