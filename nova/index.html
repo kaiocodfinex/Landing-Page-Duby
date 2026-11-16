@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DUBY · Inteligência para o seu ERP</title>
+    <meta name="description"
+        content="Escolha os módulos ideais para a sua empresa, conte com agentes de IA e transforme os dados do seu ERP em decisões e resultados." />
+    <!-- Página em validação: fora do Google até a troca oficial -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#FFFFFF" />
+    <link rel="icon" type="image/svg+xml" href="../Favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@1.69.0/dist/umd/lucide.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/nova.css?v=20261116">
+</head>
+
+<body>
+
+    <!-- ═══════════════ MENU ═══════════════ -->
+    <header class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#topo" class="nav-logo" aria-label="DUBY, voltar ao início">
+                <img src="assets/img/marca-duby.svg" alt="DUBY" width="105" height="30">
+            </a>
+            <nav class="nav-links" aria-label="Principal">
+                <a href="#plataforma">A Plataforma</a>
+                <a href="#modulos">Módulos</a>
+                <a href="#agentes">Agentes de IA</a>
+                <a href="#como-funciona">Como Funciona</a>
+                <a href="#depoimentos">Depoimentos</a>
+            </nav>
+            <button class="btn btn-primary btn-sm nav-cta" type="button" data-open-lead>
+                Solicitar demonstração <i data-lucide="arrow-right"></i>
+            </button>
+            <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuMobile">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="menu-mobile" id="menuMobile" aria-hidden="true">
+        <nav aria-label="Menu mobile">
+            <a href="#plataforma">A Plataforma</a>
+            <a href="#modulos">Módulos</a>
+            <a href="#agentes">Agentes de IA</a>
+            <a href="#como-funciona">Como Funciona</a>
+            <a href="#depoimentos">Depoimentos</a>
+        </nav>
+        <button class="btn btn-primary" type="button" data-open-lead>Solicitar demonstração <i data-lucide="arrow-right"></i></button>
+    </div>
+
+    <main id="topo">
+
+        <!-- ═══════════════ HERO ═══════════════ -->
+        <section class="hero" id="hero">
+            <div class="hero-bg" aria-hidden="true">
+                <div class="hero-blob"></div>
+                <div class="hero-grid"></div>
+            </div>
+
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <span class="pill hero-anim">Plataforma DUBY</span>
+                    <h1 class="hero-title hero-anim">A inteligência que transforma os dados do seu ERP em <span
+                            class="text-gradient">decisões e resultados.</span></h1>
+                    <p class="hero-sub hero-anim">Escolha os módulos ideais para a sua empresa, conte com agentes de IA e
+                        tenha mais controle, previsibilidade e performance em toda a operação.</p>
+                    <div class="hero-ctas hero-anim">
+                        <a href="#monte" class="btn btn-primary">Monte sua DUBY <i data-lucide="arrow-right"></i></a>
+                        <a href="#plataforma" class="btn btn-ghost" data-replay-demo><i data-lucide="play"></i> Ver a plataforma</a>
+                    </div>
+                </div>
+
+                <!-- Motion graphic: simulação da tela de fluxo de caixa (dados fictícios) -->
+                <div class="hero-visual" id="plataforma">
+                    <div class="mg-frame" id="mgFrame">
+                        <div class="mg-stage" id="mgStage" role="img"
+                            aria-label="Demonstração animada da plataforma DUBY: indicadores de caixa, fluxo de caixa por semana e pontos de atenção">
+                            <div class="mg-window">
+                                <div class="mg-top">
+                                    <div class="mg-dots"><i></i><i></i><i></i></div>
+                                    <div class="mg-brand"><img src="../assets/images/marca/Marca Duby.svg" alt=""> <span>Controladoria · Fluxo de caixa</span></div>
+                                    <div class="mg-period"><i data-lucide="calendar"></i><span id="mgMonth">Setembro 2026</span></div>
+                                </div>
+                                <div class="mg-body">
+                                    <div class="mg-kpis" id="mgKpis"></div>
+                                    <div class="mg-row">
+                                        <div class="mg-card mg-chart">
+                                            <div class="mg-card-head">
+                                                <strong>Fluxo de caixa por semana</strong>
+                                                <div class="mg-legend"><span class="lg-in">Entradas</span><span class="lg-out">Pagamentos</span></div>
+                                            </div>
+                                            <svg class="mg-svg" id="mgChart" viewBox="0 0 440 210" aria-hidden="true"></svg>
+                                        </div>
+                                        <div class="mg-card mg-alerts">
+                                            <div class="mg-card-head"><strong>Pontos de atenção do mês</strong></div>
+                                            <ul id="mgAlerts"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="mg-card mg-table">
+                                        <div class="mg-card-head"><strong>Resumo semanal</strong></div>
+                                        <div class="mg-tr mg-th"><span>Semana</span><span>A prazo</span><span>À vista</span><span>Pagamentos</span><span>Status</span></div>
+                                        <div id="mgRows"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Agente de IA "digitando" sobre o dashboard -->
+                    <div class="mg-agent" id="mgAgent" aria-hidden="true">
+                        <div class="mg-agent-head">
+                            <span class="avatar avatar-sm" data-agent="helena"><b>H</b></span>
+                            <div><strong>Helena</strong><small>Agente de IA · Controladoria</small></div>
+                            <span class="mg-live"><i></i>ao vivo</span>
+                        </div>
+                        <p id="mgAgentText"></p>
+                    </div>
+                </div>
+
+                <ul class="hero-proofs hero-anim">
+                    <li><i data-lucide="zap"></i><span>Integração com<br>seu ERP</span></li>
+                    <li><i data-lucide="layers"></i><span>Contrate por<br>módulo</span></li>
+                    <li><i data-lucide="brain"></i><span>IA aplicada<br>ao seu negócio</span></li>
+                    <li><i data-lucide="chart-column"></i><span>Resultados<br>mensuráveis</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ═══════════════ PARCEIROS ═══════════════ -->
+        <section class="partners" aria-labelledby="partnersTitle">
+            <p class="partners-title" id="partnersTitle">Empresas que confiam na DUBY</p>
+            <div class="marquee">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <img src="../assets/images/clientes/Novas Logos/Agua monte claro.svg" alt="Água Monte Claro" loading="lazy">
+                        <img src="../assets/images/clientes/Novas Logos/Agua Sao cristovão.png" alt="Água São Cristóvão" loading="lazy">
+                        <img src="../assets/images/clientes/Novas Logos/Brauna.svg" alt="Braúna" loading="lazy">
+                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/Aguas do porto.svg" alt="Águas do Porto" loading="lazy">
+                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/FMMIX.svg" alt="FMMIX" loading="lazy">
+                        <img src="../assets/images/clientes/Novas Logos/IMG_7148.PNG" alt="Cliente DUBY" loading="lazy">
+                        <img src="../assets/images/clientes/Novas Logos/log 2.png" alt="Cliente DUBY" loading="lazy">
+                        <img src="../assets/images/clientes/Novas Logos/Grupo Caioba.png" alt="Grupo Caioba" loading="lazy">
+                        <img src="../assets/images/clientes/Novas Logos/Postos Andrade.png" alt="Postos Andrade" loading="lazy">
+                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/Camada 1.png" alt="Cliente DUBY" loading="lazy">
+                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/POSTO ALIANÇA.svg" alt="Posto Aliança" loading="lazy">
+                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/POSTOS EKO.svg" alt="Postos Eko" loading="lazy">
+                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/ROCHA ATACADO.svg" alt="Rocha Atacado" loading="lazy">
+                        <img src="../assets/images/clientes/Novas Logos/Samam desde 1928.png" alt="Samam" loading="lazy">
+                    </div>
+                    <!-- cópia para o loop contínuo (preenchida pelo JS) -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ MÓDULOS ═══════════════ -->
+        <section class="section modules" id="modulos">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">Soluções da plataforma</p>
+                    <h2>Quatro módulos. Uma plataforma integrada.</h2>
+                    <p class="section-sub">Ative as áreas que fazem sentido para o seu negócio e evolua no seu ritmo.</p>
+                </header>
+
+                <div class="modules-grid">
+                    <article class="module-card" data-reveal data-module-card="comercial">
+                        <div class="module-icon"><i data-lucide="chart-column"></i></div>
+                        <h3>Inteligência Comercial</h3>
+                        <p>Aumente suas vendas, entenda o comportamento do cliente e potencialize seu mix de produtos.</p>
+                        <ul class="checks">
+                            <li>Análise de clientes e comportamento</li>
+                            <li>Estratégia de produtos e mix</li>
+                            <li>Metas, campanhas e incentivos</li>
+                            <li>Monitoramento de performance</li>
+                        </ul>
+                        <button class="module-price" type="button" data-pick-module="comercial">
+                            <span class="mp-value">R$ 299<small>/mês</small></span>
+                            <span class="mp-action" aria-hidden="true"><i data-lucide="plus"></i></span>
+                        </button>
+                    </article>
+
+                    <article class="module-card" data-reveal data-module-card="controladoria">
+                        <div class="module-icon"><i data-lucide="database"></i></div>
+                        <h3>Controladoria Inteligente</h3>
+                        <p>Tenha controle, previsibilidade e resultados financeiros com mais precisão.</p>
+                        <ul class="checks">
+                            <li>Resultados e DRE</li>
+                            <li>Contas a pagar e receber</li>
+                            <li>Fluxo de caixa e orçamento</li>
+                            <li>Conciliação bancária</li>
+                        </ul>
+                        <button class="module-price" type="button" data-pick-module="controladoria">
+                            <span class="mp-value">R$ 299<small>/mês</small></span>
+                            <span class="mp-action" aria-hidden="true"><i data-lucide="plus"></i></span>
+                        </button>
+                    </article>
+
+                    <article class="module-card" data-reveal data-module-card="compras">
+                        <div class="module-icon"><i data-lucide="shopping-cart"></i></div>
+                        <h3>Inteligência de Compras</h3>
+                        <p>Compre com mais precisão, reduza o estoque parado e evite rupturas.</p>
+                        <ul class="checks">
+                            <li>Sugestão de compras com IA</li>
+                            <li>Divergências e nível de estoque</li>
+                            <li>Simulador de compras e impostos</li>
+                            <li>Metas e limites por grupo</li>
+                        </ul>
+                        <button class="module-price" type="button" data-pick-module="compras">
+                            <span class="mp-value">R$ 299<small>/mês</small></span>
+                            <span class="mp-action" aria-hidden="true"><i data-lucide="plus"></i></span>
+                        </button>
+                    </article>
+
+                    <article class="module-card" data-reveal data-module-card="logistica">
+                        <div class="module-icon"><i data-lucide="package"></i></div>
+                        <h3>Inteligência Logística e Operacional</h3>
+                        <p>Tenha uma operação mais eficiente, do recebimento à expedição.</p>
+                        <ul class="checks">
+                            <li>Recebimento inteligente com IA</li>
+                            <li>Planejamento logístico</li>
+                            <li>Controle de expedição</li>
+                            <li>Armazenamento e WMS</li>
+                        </ul>
+                        <button class="module-price" type="button" data-pick-module="logistica">
+                            <span class="mp-value">R$ 299<small>/mês</small></span>
+                            <span class="mp-action" aria-hidden="true"><i data-lucide="plus"></i></span>
+                        </button>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ AGENTES DE IA + MONTE SUA DUBY ═══════════════ -->
+        <section class="section build" id="agentes">
+            <div class="container build-grid">
+
+                <div class="agents-panel" data-reveal>
+                    <div class="agents-copy">
+                        <span class="pill pill-dark">Agentes de IA da DUBY</span>
+                        <h2>Sua equipe digital de inteligência empresarial.</h2>
+                        <p>Análises, alertas e recomendações especializadas para cada área do seu negócio.</p>
+                        <a href="#agentesGrid" class="btn btn-light" data-highlight-agents>Conheça os agentes <i data-lucide="arrow-right"></i></a>
+                    </div>
+                    <div class="agents-grid" id="agentesGrid">
+                        <article class="agent-card">
+                            <div class="agent-top">
+                                <span class="avatar" data-agent="zuri"><b>Z</b></span>
+                                <i data-lucide="chart-column"></i>
+                            </div>
+                            <h3>Zuri</h3>
+                            <p>Foco em vendas, clientes e campanhas.</p>
+                        </article>
+                        <article class="agent-card">
+                            <div class="agent-top">
+                                <span class="avatar" data-agent="helena"><b>H</b></span>
+                                <i data-lucide="database"></i>
+                            </div>
+                            <h3>Helena</h3>
+                            <p>Foco em resultados financeiros, fluxo de caixa e orçamento.</p>
+                        </article>
+                        <article class="agent-card">
+                            <div class="agent-top">
+                                <span class="avatar" data-agent="maria-julia"><b>MJ</b></span>
+                                <i data-lucide="shopping-cart"></i>
+                            </div>
+                            <h3>Maria Júlia</h3>
+                            <p>Foco em compras, estoque, fornecedores e reposição.</p>
+                        </article>
+                        <article class="agent-card">
+                            <div class="agent-top">
+                                <span class="avatar" data-agent="heitor"><b>H</b></span>
+                                <i data-lucide="package"></i>
+                            </div>
+                            <h3>Heitor</h3>
+                            <p>Foco em recebimento, armazenamento, expedição e operação.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Simulador: regra comercial em assets/js/pricing.js -->
+                <div class="sim" id="monte" data-reveal>
+                    <h2 class="sim-title">Monte sua DUBY</h2>
+                    <p class="sim-sub">Escolha os módulos, adicione os agentes de IA e simule o investimento mensal.</p>
+
+                    <fieldset class="sim-modules">
+                        <legend class="sr-only">Módulos</legend>
+                        <label class="sim-opt"><input type="checkbox" name="modulo" value="comercial" checked><span class="box"><i data-lucide="check"></i></span><span class="name">Inteligência Comercial</span><span class="price">R$ 299</span></label>
+                        <label class="sim-opt"><input type="checkbox" name="modulo" value="controladoria" checked><span class="box"><i data-lucide="check"></i></span><span class="name">Controladoria Inteligente</span><span class="price">R$ 299</span></label>
+                        <label class="sim-opt"><input type="checkbox" name="modulo" value="compras"><span class="box"><i data-lucide="check"></i></span><span class="name">Inteligência de Compras</span><span class="price">R$ 299</span></label>
+                        <label class="sim-opt"><input type="checkbox" name="modulo" value="logistica"><span class="box"><i data-lucide="check"></i></span><span class="name">Inteligência Logística e Operacional</span><span class="price">R$ 299</span></label>
+                    </fieldset>
+
+                    <div class="sim-period" role="radiogroup" aria-label="Período de contratação">
+                        <span class="seg-indicator" aria-hidden="true"></span>
+                        <button type="button" role="radio" aria-checked="true" data-periodo="mensal">Mensal</button>
+                        <button type="button" role="radio" aria-checked="false" data-periodo="semestral">Semestral <em>−5%</em></button>
+                        <button type="button" role="radio" aria-checked="false" data-periodo="anual">Anual <em>−10%</em></button>
+                    </div>
+
+                    <label class="sim-ai">
+                        <input type="checkbox" id="simIa">
+                        <span class="switch" aria-hidden="true"></span>
+                        <span class="ai-name"><i data-lucide="sparkles"></i> Agentes de IA <small>Zuri, Helena, Maria Júlia e Heitor · sem desconto</small></span>
+                        <span class="price">+ R$ 399</span>
+                    </label>
+
+                    <div class="sim-summary" aria-live="polite">
+                        <div class="sim-lines">
+                            <div class="sim-line"><span id="simLinhaCheio">2 módulos</span><span id="simCheio">R$ 598,00</span></div>
+                            <div class="sim-line is-discount" id="simLinhaQtd"><span>Desconto por quantidade (<b id="simQtdPct">5%</b>)</span><span id="simQtd">− R$ 29,90</span></div>
+                            <div class="sim-line is-discount" id="simLinhaPeriodo" hidden><span>Desconto <b id="simPeriodoNome">anual</b> (<b id="simPeriodoPct">10%</b>)</span><span id="simPeriodo">− R$ 0,00</span></div>
+                            <div class="sim-line" id="simLinhaIa" hidden><span>Agentes de IA</span><span>+ R$ 399,00</span></div>
+                        </div>
+                        <div class="sim-total">
+                            <div>
+                                <span class="sim-total-label">Total mensal</span>
+                                <strong class="sim-total-value" id="simTotal">R$ 568,10</strong>
+                                <span class="sim-total-per">/mês</span>
+                            </div>
+                            <div class="sim-total-meta">
+                                <span id="simResumo">2 módulos</span>
+                                <span id="simCobranca" hidden></span>
+                            </div>
+                        </div>
+                        <p class="sim-saving" id="simEconomia"><i data-lucide="badge-percent"></i><span></span></p>
+                        <p class="sim-tip" id="simDica"></p>
+                        <p class="sim-empty" id="simVazio" hidden>Selecione ao menos um módulo para simular.</p>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" type="button" id="simCta" data-open-lead data-from-sim>
+                        Solicitar demonstração <i data-lucide="arrow-right"></i>
+                    </button>
+                    <p class="sim-note">Implantação e integrações especiais não estão incluídas nos valores.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══════════════ COMO FUNCIONA ═══════════════ -->
+        <section class="section how" id="como-funciona">
+            <div class="container how-grid">
+                <header class="how-head" data-reveal>
+                    <p class="eyebrow">Como funciona</p>
+                    <h2>Simples, rápido e seguro.</h2>
+                    <p class="section-sub">Do seu ERP à inteligência de resultados, em poucos passos.</p>
+                </header>
+                <ol class="steps" id="steps">
+                    <span class="steps-line" aria-hidden="true"><span class="steps-line-fill" id="stepsFill"></span></span>
+                    <li class="step">
+                        <span class="step-icon"><i data-lucide="link"></i></span>
+                        <h3>1. Conecte seu ERP</h3>
+                        <p>Integração rápida e segura com o seu sistema.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-icon"><i data-lucide="layout-grid"></i></span>
+                        <h3>2. Escolha seus módulos</h3>
+                        <p>Ative as áreas que fazem sentido para o seu negócio.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-icon"><i data-lucide="sparkles"></i></span>
+                        <h3>3. Adicione os agentes de IA</h3>
+                        <p>Conte com especialistas virtuais para analisar, recomendar e agir.</p>
+                    </li>
+                    <li class="step">
+                        <span class="step-icon"><i data-lucide="chart-column-increasing"></i></span>
+                        <h3>4. Gere resultados</h3>
+                        <p>Tome decisões mais rápidas, reduza custos e aumente a performance.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ═══════════════ DEPOIMENTOS ═══════════════ -->
+        <section class="section testimonials" id="depoimentos">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <p class="eyebrow">Depoimentos</p>
+                    <h2>Empresas que passaram a decidir com mais clareza.</h2>
+                    <p class="section-sub">Veja como a DUBY transforma dados em decisões mais seguras, previsibilidade e
+                        crescimento com controle.</p>
+                </header>
+                <div class="videos">
+                    <figure class="video-card" data-reveal>
+                        <div class="video-frame">
+                            <video src="../assets/videos/depoimento-tarik-grupo-caioba.mp4"
+                                poster="../assets/videos/depoimento-tarik-grupo-caioba-poster.jpg" preload="none" playsinline
+                                aria-label="Depoimento de Tarik, do Grupo Caioba"></video>
+                            <button class="video-play" type="button" aria-label="Reproduzir depoimento de Tarik, do Grupo Caioba"><i data-lucide="play"></i></button>
+                        </div>
+                        <figcaption><strong>Tarik</strong><span>Grupo Caioba</span></figcaption>
+                    </figure>
+                    <figure class="video-card" data-reveal>
+                        <div class="video-frame">
+                            <video src="../assets/videos/depoimento-icaro-brauna-atacado.mp4"
+                                poster="../assets/videos/depoimento-icaro-brauna-atacado-poster.jpg" preload="none" playsinline
+                                aria-label="Depoimento de Icaro Souza, do Braúna Atacado"></video>
+                            <button class="video-play" type="button" aria-label="Reproduzir depoimento de Icaro Souza, do Braúna Atacado"><i data-lucide="play"></i></button>
+                        </div>
+                        <figcaption><strong>Icaro Souza</strong><span>Braúna Atacado</span></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══════════════ RODAPÉ ═══════════════ -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/img/marca-duby.svg" alt="DUBY" width="105" height="30">
+                <p>A inteligência que transforma os dados do seu ERP em decisões e resultados.</p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/duby.ie/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/duby-inteligência-e-organização-empresariall" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Plataforma</h4>
+                <a href="#plataforma">A Plataforma</a>
+                <a href="#modulos">Módulos</a>
+                <a href="#agentes">Agentes de IA</a>
+                <a href="#monte">Monte sua DUBY</a>
+            </div>
+            <div class="footer-col">
+                <h4>Empresa</h4>
+                <a href="#como-funciona">Como Funciona</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <button type="button" data-open-lead>Solicitar demonstração</button>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <a href="mailto:contato@duby.com.br"><i data-lucide="mail"></i> contato@duby.com.br</a>
+                <a href="https://api.whatsapp.com/send/?phone=5579999751825&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer"><i data-lucide="phone"></i> (79) 99975-1825</a>
+                <a href="https://www.google.com/maps/place/Duby/@-10.922524,-37.0667268,17z" target="_blank" rel="noopener noreferrer"><i data-lucide="map-pin"></i> Aracaju, SE</a>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <span>© 2026 DUBY. Todos os direitos reservados.</span>
+            <a href="https://kaiodesign.com" target="_blank" rel="noopener noreferrer" class="footer-dev">Desenvolvido por <img src="assets/img/kaiodesign-escuro.svg" alt="Kaiodesign"></a>
+        </div>
+    </footer>
+
+    <!-- ═══════════════ POP-UP DE FORMULÁRIO ═══════════════ -->
+    <div class="lead" id="lead" hidden>
+        <div class="lead-backdrop" data-close-lead></div>
+        <div class="lead-dialog" role="dialog" aria-modal="true" aria-labelledby="leadTitle" tabindex="-1">
+            <button class="lead-close" type="button" aria-label="Fechar" data-close-lead><i data-lucide="x"></i></button>
+
+            <div class="lead-content" id="leadContent">
+                <span class="pill">Demonstração gratuita</span>
+                <h2 id="leadTitle">Vamos conhecer sua operação.</h2>
+                <div class="lead-summary" id="leadSummary"></div>
+
+                <!--
+                    DESTINO DOS DADOS: a equipe do cliente conecta o envio aqui.
+                    Ao enviar, a página dispara o evento "duby:lead" com todos os campos:
+                    window.addEventListener('duby:lead', (e) => { /* enviar e.detail para o n8n */ });
+                -->
+                <form id="leadForm" novalidate>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="lNome">Nome <span>*</span></label>
+                            <input id="lNome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required>
+                            <small class="field-error">Campo obrigatório</small>
+                        </div>
+                        <div class="field">
+                            <label for="lTelefone">WhatsApp <span>*</span></label>
+                            <input id="lTelefone" name="telefone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" maxlength="15" required>
+                            <small class="field-error">Telefone inválido</small>
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label for="lEmpresa">Empresa <span>*</span></label>
+                            <input id="lEmpresa" name="empresa" type="text" autocomplete="organization" placeholder="Nome da empresa" required>
+                            <small class="field-error">Campo obrigatório</small>
+                        </div>
+                        <div class="field">
+                            <label for="lErp">Sistema utilizado (ERP) <span>*</span></label>
+                            <input id="lErp" name="erp" type="text" placeholder="Ex.: TOTVS, Sankhya..." required>
+                            <small class="field-error">Campo obrigatório</small>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="lEmail">E-mail corporativo <span>*</span></label>
+                        <input id="lEmail" name="email" type="email" autocomplete="email" placeholder="nome@empresa.com.br" required>
+                        <small class="field-error">E-mail inválido</small>
+                    </div>
+                    <input type="hidden" name="modulos">
+                    <input type="hidden" name="periodo">
+                    <input type="hidden" name="agentes_ia">
+                    <input type="hidden" name="total_mensal">
+                    <input type="hidden" name="total_periodo">
+                    <button class="btn btn-primary btn-block" type="submit" id="leadSubmit">Solicitar demonstração <i data-lucide="arrow-right"></i></button>
+                    <p class="lead-privacy"><i data-lucide="lock"></i> Seus dados estão seguros. Não enviamos spam.</p>
+                </form>
+            </div>
+
+            <div class="lead-success" id="leadSuccess" hidden>
+                <span class="success-check"><i data-lucide="check"></i></span>
+                <h2>Solicitação enviada!</h2>
+                <p>Nossa equipe vai entrar em contato pelo WhatsApp para agendar sua demonstração.</p>
+                <button class="btn btn-ghost" type="button" data-close-lead>Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/pricing.js?v=20261116"></script>
+    <script src="assets/js/nova.js?v=20261116"></script>
+</body>
+
+</html>
