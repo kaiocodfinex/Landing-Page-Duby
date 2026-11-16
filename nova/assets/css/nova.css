@@ -2434,6 +2434,16 @@ body.is-locked {
         bottom: -48px;
     }
 
+    /* tópicos centralizados entre a linha de cima e a faixa de logos */
+    .hero {
+        padding-bottom: 0;
+    }
+
+    .hero-proofs {
+        padding-top: 28px;
+        padding-bottom: 28px;
+    }
+
     .how-grid {
         grid-template-columns: 1fr;
     }
@@ -2476,10 +2486,6 @@ body.is-locked {
         flex: 1 1 100%;
     }
 
-    .hero {
-        padding-bottom: 28px;
-    }
-
     .hero-inner {
         row-gap: 52px;
     }
@@ -2488,7 +2494,6 @@ body.is-locked {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 22px 12px;
         margin-top: -12px;
-        padding-top: 26px;
         text-align: center;
     }
 
