@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lucide@1.69.0/dist/umd/lucide.min.js"></script>
 
-    <link rel="stylesheet" href="assets/css/nova.css?v=20261116">
+    <link rel="stylesheet" href="assets/css/nova.css?v=20261117">
 </head>
 
 <body>
@@ -121,8 +121,8 @@
                     <div class="mg-agent" id="mgAgent" aria-hidden="true">
                         <div class="mg-agent-head">
                             <span class="avatar avatar-sm" data-agent="helena"><img src="assets/img/agentes/helena.jpg" alt="" width="36" height="36"><b>H</b></span>
-                            <div><strong>Helena</strong><small>Agente de IA · Controladoria</small></div>
-                            <span class="mg-live"><i></i>ao vivo</span>
+                            <div class="mg-agent-name"><strong>Helena</strong><span class="mg-live"><i></i>ao vivo</span></div>
+                            <small>Agente de IA · Controladoria</small>
                         </div>
                         <p id="mgAgentText"></p>
                     </div>
@@ -146,16 +146,16 @@
                         <img src="../assets/images/clientes/Novas Logos/Agua monte claro.svg" alt="Água Monte Claro" loading="lazy">
                         <img src="../assets/images/clientes/Novas Logos/Agua Sao cristovão.png" alt="Água São Cristóvão" loading="lazy">
                         <img src="../assets/images/clientes/Novas Logos/Brauna.svg" alt="Braúna" loading="lazy">
-                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/Aguas do porto.svg" alt="Águas do Porto" loading="lazy">
-                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/FMMIX.svg" alt="FMMIX" loading="lazy">
+                        <img src="assets/img/parceiros/aguas-do-porto.svg" alt="Águas do Porto" loading="lazy">
+                        <img src="assets/img/parceiros/fmmix.svg" alt="FMMIX" loading="lazy">
                         <img src="../assets/images/clientes/Novas Logos/IMG_7148.PNG" alt="Cliente DUBY" loading="lazy">
                         <img src="../assets/images/clientes/Novas Logos/log 2.png" alt="Cliente DUBY" loading="lazy">
                         <img src="../assets/images/clientes/Novas Logos/Grupo Caioba.png" alt="Grupo Caioba" loading="lazy">
                         <img src="../assets/images/clientes/Novas Logos/Postos Andrade.png" alt="Postos Andrade" loading="lazy">
-                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/Camada 1.png" alt="Cliente DUBY" loading="lazy">
-                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/POSTO ALIANÇA.svg" alt="Posto Aliança" loading="lazy">
-                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/POSTOS EKO.svg" alt="Postos Eko" loading="lazy">
-                        <img class="logo-solid" src="../assets/images/clientes/Novas Logos/ROCHA ATACADO.svg" alt="Rocha Atacado" loading="lazy">
+                        <img src="assets/img/parceiros/mdm.png" alt="MDM Transportes" loading="lazy">
+                        <img src="assets/img/parceiros/posto-alianca.svg" alt="Posto Aliança" loading="lazy">
+                        <img src="assets/img/parceiros/postos-eko.svg" alt="Postos Eko" loading="lazy">
+                        <img src="assets/img/parceiros/rocha-atacado.svg" alt="Rocha Atacado" loading="lazy">
                         <img src="../assets/images/clientes/Novas Logos/Samam desde 1928.png" alt="Samam" loading="lazy">
                     </div>
                     <!-- cópia para o loop contínuo (preenchida pelo JS) -->
@@ -245,45 +245,68 @@
             <div class="container build-grid">
 
                 <div class="agents-panel" data-reveal>
-                    <div class="agents-copy">
-                        <span class="pill pill-dark">Agentes de IA da DUBY</span>
-                        <h2>Sua equipe digital de inteligência empresarial.</h2>
-                        <p>Análises, alertas e recomendações especializadas para cada área do seu negócio.</p>
-                        <a href="#agentesGrid" class="btn btn-light" data-highlight-agents>Conheça os agentes <i data-lucide="arrow-right"></i></a>
+                    <div class="agents-head">
+                        <div class="agents-copy">
+                            <span class="pill pill-dark">Agentes de IA da DUBY</span>
+                            <h2>Sua equipe digital de inteligência empresarial.</h2>
+                        </div>
+                        <div class="agents-aside">
+                            <p>Análises, alertas e recomendações especializadas para cada área do seu negócio.</p>
+                            <a href="#agentesGrid" class="btn btn-light btn-sm" data-highlight-agents>Conheça os agentes <i data-lucide="arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="agents-grid" id="agentesGrid">
-                        <article class="agent-card">
-                            <div class="agent-top">
-                                <span class="avatar" data-agent="zuri"><img src="assets/img/agentes/zuri.jpg" alt="Zuri, agente de IA de vendas" width="64" height="64" loading="lazy"><b>Z</b></span>
-                                <i data-lucide="chart-column"></i>
-                            </div>
-                            <h3>Zuri</h3>
-                            <p>Foco em vendas, clientes e campanhas.</p>
-                        </article>
-                        <article class="agent-card">
-                            <div class="agent-top">
-                                <span class="avatar" data-agent="helena"><img src="assets/img/agentes/helena.jpg" alt="Helena, agente de IA financeira" width="64" height="64" loading="lazy"><b>H</b></span>
-                                <i data-lucide="database"></i>
-                            </div>
-                            <h3>Helena</h3>
-                            <p>Foco em resultados financeiros, fluxo de caixa e orçamento.</p>
-                        </article>
-                        <article class="agent-card">
-                            <div class="agent-top">
-                                <span class="avatar" data-agent="maria-julia"><img src="assets/img/agentes/maria-julia.jpg" alt="Maria Júlia, agente de IA de compras" width="64" height="64" loading="lazy"><b>MJ</b></span>
-                                <i data-lucide="shopping-cart"></i>
-                            </div>
-                            <h3>Maria Júlia</h3>
-                            <p>Foco em compras, estoque, fornecedores e reposição.</p>
-                        </article>
-                        <article class="agent-card">
-                            <div class="agent-top">
-                                <span class="avatar" data-agent="heitor"><img src="assets/img/agentes/heitor.jpg" alt="Heitor, agente de IA de logística" width="64" height="64" loading="lazy"><b>H</b></span>
-                                <i data-lucide="package"></i>
-                            </div>
-                            <h3>Heitor</h3>
-                            <p>Foco em recebimento, armazenamento, expedição e operação.</p>
-                        </article>
+
+                    <div class="agents-grid" id="agentesGrid" role="tablist" aria-label="Agentes de IA">
+                        <button class="agent-card is-active" type="button" role="tab" aria-selected="true"
+                            data-agent-key="zuri" data-agent-name="Zuri" data-agent-area="Inteligência Comercial" data-agent-msg="3 clientes campeões estão há 45 dias sem comprar. Juntos, eles representam R$ 182 mil por mês. Quer que eu monte uma campanha de reativação?" data-agent-chips="Ver clientes|Criar campanha">
+                            <span class="agent-photo"><img src="assets/img/agentes/zuri-retrato.jpg" alt="Zuri, agente de IA de Inteligência Comercial" width="210" height="280" loading="lazy"></span>
+                            <span class="agent-info">
+                                <span class="agent-icon"><i data-lucide="chart-column"></i></span>
+                                <strong>Zuri</strong>
+                                <small>Inteligência Comercial</small>
+                            </span>
+                            <span class="agent-progress" aria-hidden="true"><i></i></span>
+                        </button>
+                        <button class="agent-card" type="button" role="tab" aria-selected="false"
+                            data-agent-key="helena" data-agent-name="Helena" data-agent-area="Controladoria Inteligente" data-agent-msg="O caixa da semana 3 tende a fechar negativo em R$ 650 mil. Antecipar os recebíveis de 12 clientes cobre essa diferença." data-agent-chips="Simular antecipação|Ver fluxo de caixa">
+                            <span class="agent-photo"><img src="assets/img/agentes/helena-retrato.jpg" alt="Helena, agente de IA de Controladoria Inteligente" width="210" height="280" loading="lazy"></span>
+                            <span class="agent-info">
+                                <span class="agent-icon"><i data-lucide="database"></i></span>
+                                <strong>Helena</strong>
+                                <small>Controladoria Inteligente</small>
+                            </span>
+                            <span class="agent-progress" aria-hidden="true"><i></i></span>
+                        </button>
+                        <button class="agent-card" type="button" role="tab" aria-selected="false"
+                            data-agent-key="maria-julia" data-agent-name="Maria Júlia" data-agent-area="Inteligência de Compras" data-agent-msg="12 itens da curva A entram em ruptura em até 7 dias. Já deixei a sugestão de compra pronta: R$ 94 mil em 3 fornecedores." data-agent-chips="Revisar pedido|Ver itens em risco">
+                            <span class="agent-photo"><img src="assets/img/agentes/maria-julia-retrato.jpg" alt="Maria Júlia, agente de IA de Inteligência de Compras" width="210" height="280" loading="lazy"></span>
+                            <span class="agent-info">
+                                <span class="agent-icon"><i data-lucide="shopping-cart"></i></span>
+                                <strong>Maria Júlia</strong>
+                                <small>Inteligência de Compras</small>
+                            </span>
+                            <span class="agent-progress" aria-hidden="true"><i></i></span>
+                        </button>
+                        <button class="agent-card" type="button" role="tab" aria-selected="false"
+                            data-agent-key="heitor" data-agent-name="Heitor" data-agent-area="Logística e Operacional" data-agent-msg="Um fornecedor atrasou 4 das últimas 6 entregas. Esta semana chegam 38 pedidos, e 5 têm divergência de quantidade." data-agent-chips="Ver divergências|Planejar recebimento">
+                            <span class="agent-photo"><img src="assets/img/agentes/heitor-retrato.jpg" alt="Heitor, agente de IA de Logística e Operacional" width="210" height="280" loading="lazy"></span>
+                            <span class="agent-info">
+                                <span class="agent-icon"><i data-lucide="package"></i></span>
+                                <strong>Heitor</strong>
+                                <small>Logística e Operacional</small>
+                            </span>
+                            <span class="agent-progress" aria-hidden="true"><i></i></span>
+                        </button>
+                    </div>
+
+                    <div class="agent-console" id="agentConsole" role="tabpanel">
+                        <div class="ac-head">
+                            <span class="avatar avatar-sm"><img id="acAvatar" src="assets/img/agentes/zuri.jpg" alt="" width="36" height="36"></span>
+                            <div class="ac-who"><strong id="acName">Zuri</strong><small id="acArea">Inteligência Comercial</small></div>
+                            <span class="ac-status"><i></i><span>analisando agora</span></span>
+                        </div>
+                        <p class="ac-msg" id="acMsg">3 clientes campeões estão há 45 dias sem comprar. Juntos, eles representam R$ 182 mil por mês. Quer que eu monte uma campanha de reativação?</p>
+                        <div class="ac-chips" id="acChips"><span>Ver clientes</span><span>Criar campanha</span></div>
                     </div>
                 </div>
 
@@ -521,7 +544,7 @@
     </div>
 
     <script src="assets/js/pricing.js?v=20261116"></script>
-    <script src="assets/js/nova.js?v=20261116"></script>
+    <script src="assets/js/nova.js?v=20261117"></script>
 </body>
 
 </html>

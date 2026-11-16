@@ -500,6 +500,9 @@ h2 {
 
 .hero-proofs {
     grid-column: 1 / -1;
+    justify-self: center;
+    width: 100%;
+    max-width: 1080px;
     display: grid;
     grid-template-columns: repeat(4, auto);
     justify-content: space-between;
@@ -507,7 +510,6 @@ h2 {
     margin-top: 40px;
     padding-top: 32px;
     border-top: 1px solid rgba(109, 40, 217, .1);
-    max-width: 1000px;
 }
 
 .hero-proofs li {
@@ -846,30 +848,44 @@ h2 {
 }
 
 .mg-agent-head {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     align-items: center;
-    gap: 10px;
+    column-gap: 10px;
 }
 
-.mg-agent-head strong {
-    display: block;
+.mg-agent-head .avatar-sm {
+    grid-row: span 2;
+}
+
+.mg-agent-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.mg-agent-name strong {
     font-size: 14px;
+    font-weight: 700;
     line-height: 1.2;
 }
 
 .mg-agent-head small {
-    font-size: 11px;
+    font-size: 11.5px;
+    line-height: 1.25;
     color: var(--ink-3);
+    white-space: nowrap;
 }
 
 .mg-live {
-    margin-left: auto;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 5px;
     font-size: 11px;
     font-weight: 600;
     color: #059669;
+    white-space: nowrap;
 }
 
 .mg-live i {
@@ -887,11 +903,12 @@ h2 {
 }
 
 .mg-agent p {
-    margin-top: 8px;
-    min-height: 58px;
+    margin-top: 10px;
+    min-height: calc(1.45em * 3);
     font-size: 13px;
-    line-height: 1.5;
-    color: var(--ink-2);
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--ink);
 }
 
 .mg-agent p::after {
@@ -995,28 +1012,17 @@ h2 {
     width: auto;
     max-width: 150px;
     object-fit: contain;
-    filter: grayscale(1) contrast(1.1);
+    filter: grayscale(1);
     mix-blend-mode: multiply;
-    opacity: .62;
-    transition: opacity .4s, filter .4s, transform .5s var(--ease);
+    opacity: .6;
+    transition: opacity .45s var(--ease), filter .45s var(--ease), transform .5s var(--ease);
 }
 
-/* logos feitas para fundo escuro (partes brancas): silhueta escura */
-.marquee-group img.logo-solid {
-    filter: brightness(0);
-    mix-blend-mode: normal;
-    opacity: .5;
-}
-
+/* hover: cor original da logo */
 .marquee-group img:hover {
-    filter: none;
+    filter: grayscale(0);
     opacity: 1;
     transform: scale(1.06);
-}
-
-.marquee-group img.logo-solid:hover {
-    filter: brightness(0) invert(18%) sepia(85%) saturate(4500%) hue-rotate(262deg);
-    opacity: .9;
 }
 
 @keyframes marquee {
@@ -1204,13 +1210,14 @@ h2 {
 
 .agents-panel {
     position: relative;
-    display: grid;
-    grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr);
-    gap: 32px;
-    padding: 44px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding: 40px 36px 36px;
     border-radius: var(--r-lg);
     color: #fff;
     overflow: hidden;
+    isolation: isolate;
     background:
         radial-gradient(80% 60% at 0% 0%, rgba(167, 139, 250, .45), transparent 60%),
         radial-gradient(70% 70% at 100% 100%, rgba(124, 58, 237, .6), transparent 60%),
@@ -1222,114 +1229,265 @@ h2 {
     content: '';
     position: absolute;
     inset: 0;
+    z-index: -1;
     background-image: radial-gradient(rgba(255, 255, 255, .08) 1px, transparent 1px);
     background-size: 22px 22px;
-    -webkit-mask-image: linear-gradient(180deg, #000, transparent 80%);
-    mask-image: linear-gradient(180deg, #000, transparent 80%);
+    -webkit-mask-image: linear-gradient(180deg, #000, transparent 70%);
+    mask-image: linear-gradient(180deg, #000, transparent 70%);
     pointer-events: none;
 }
 
-.agents-copy {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+.agents-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: end;
 }
 
 .agents-copy h2 {
-    margin-top: 22px;
+    margin-top: 18px;
     color: #fff;
-    font-size: clamp(30px, 3vw, 38px);
+    font-size: clamp(28px, 2.6vw, 36px);
 }
 
-.agents-copy p {
-    margin-top: 16px;
-    font-size: 16px;
+.agents-aside p {
+    font-size: 15px;
+    line-height: 1.55;
     color: rgba(255, 255, 255, .78);
 }
 
-.agents-copy .btn {
-    margin-top: 28px;
+.agents-aside .btn {
+    margin-top: 16px;
 }
 
+/* ─── Cards de retrato ─── */
 .agents-grid {
-    position: relative;
-    z-index: 1;
-    align-self: center;
+    flex: 1;
+    min-height: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
 }
 
 .agent-card {
-    padding: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: #fff;
     border-radius: 18px;
-    background: rgba(255, 255, 255, .08);
-    border: 1px solid rgba(255, 255, 255, .16);
+    overflow: hidden;
+    background: rgba(255, 255, 255, .07);
+    border: 1px solid rgba(255, 255, 255, .14);
+    transition: transform .7s var(--ease), background .4s, border-color .4s, box-shadow .7s var(--ease);
+}
+
+.agent-photo {
+    position: relative;
+    display: block;
+    flex: 1;
+    min-height: 270px;
+    overflow: hidden;
+}
+
+.agent-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 18%;
+    filter: saturate(.75) brightness(.92);
+    transform: scale(1.02);
+    transition: transform 1.1s var(--ease), filter .6s;
+}
+
+.agent-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(24, 8, 60, 0) 42%, rgba(24, 8, 60, .55) 66%, rgba(24, 8, 60, .92) 100%);
+}
+
+.agent-info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    padding: 0 14px 14px;
+}
+
+.agent-icon {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, .28);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    transition: transform .6s var(--ease), background .4s, border-color .4s;
 }
 
-.agent-card:hover {
-    transform: translateY(-4px);
-    background: rgba(255, 255, 255, .13);
-    border-color: rgba(255, 255, 255, .3);
+.agent-icon svg {
+    width: 17px;
+    height: 17px;
 }
 
-.agent-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-}
-
-.agent-top>svg {
-    width: 22px;
-    height: 22px;
-    color: #DDD6FE;
-}
-
-.agent-card .avatar {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
-}
-
-.agent-card h3 {
-    margin-top: 14px;
-    font-size: 19px;
-    font-weight: 800;
+.agent-info strong {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
     letter-spacing: -.02em;
 }
 
-.agent-card p {
-    margin-top: 4px;
+.agent-info small {
+    display: block;
+    margin-top: 3px;
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, .72);
+}
+
+.agent-card:hover .agent-photo img,
+.agent-card.is-active .agent-photo img {
+    filter: none;
+    transform: scale(1.07);
+}
+
+.agent-card:hover {
+    border-color: rgba(255, 255, 255, .32);
+}
+
+.agent-card.is-active {
+    background: rgba(255, 255, 255, .15);
+    border-color: rgba(255, 255, 255, .6);
+    box-shadow: 0 22px 44px -18px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .25) inset;
+    transform: translateY(-4px);
+}
+
+.agent-progress {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    right: 12px;
+    height: 3px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .28);
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+.agent-progress i {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform: scaleX(var(--p, 0));
+    transform-origin: left;
+}
+
+.agent-card.is-active .agent-progress {
+    opacity: 1;
+}
+
+/* ─── Console do agente ─── */
+.agent-console {
+    padding: 18px 20px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .18);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .12) inset;
+}
+
+.ac-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ac-head .avatar-sm {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .5);
+}
+
+.ac-who strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.ac-who small {
+    display: block;
+    font-size: 12px;
+    line-height: 1.3;
+    color: rgba(255, 255, 255, .68);
+}
+
+.ac-status {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #A7F3D0;
+    white-space: nowrap;
+}
+
+.ac-status i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #34D399;
+    animation: live 1.6s ease-in-out infinite;
+}
+
+.ac-msg {
+    margin-top: 12px;
+    min-height: calc(1.55em * 3);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.55;
+    color: #fff;
+}
+
+.agent-console.is-typing .ac-msg::after {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 15px;
+    margin-left: 2px;
+    vertical-align: -2px;
+    background: #C4B5FD;
+    animation: caret 1s steps(1) infinite;
+}
+
+.ac-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.ac-chips span {
+    padding: 7px 12px;
+    border-radius: 999px;
     font-size: 13px;
-    line-height: 1.45;
-    color: rgba(255, 255, 255, .75);
+    font-weight: 600;
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .24);
+    transition: opacity .5s var(--ease), transform .5s var(--ease);
 }
 
-.agents-panel.is-highlight .agent-card {
-    animation: agent-pop .9s var(--ease) both;
-}
-
-.agents-panel.is-highlight .agent-card:nth-child(2) {
-    animation-delay: .1s;
-}
-
-.agents-panel.is-highlight .agent-card:nth-child(3) {
-    animation-delay: .2s;
-}
-
-.agents-panel.is-highlight .agent-card:nth-child(4) {
-    animation-delay: .3s;
-}
-
-@keyframes agent-pop {
-    40% {
-        transform: translateY(-6px) scale(1.03);
-        border-color: rgba(255, 255, 255, .5);
-    }
+.agent-console.is-typing .ac-chips span {
+    opacity: 0;
+    transform: translateY(6px);
 }
 
 /* ─── Simulador ─── */
@@ -2361,21 +2519,44 @@ body.is-locked {
     }
 
     .agents-panel {
-        grid-template-columns: 1fr;
-        padding: 32px 22px;
+        padding: 30px 20px 22px;
+        gap: 22px;
     }
 
+    .agents-head {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    /* cards em carrossel horizontal com snap */
     .agents-grid {
-        gap: 10px;
+        grid-auto-flow: column;
+        grid-template-columns: none;
+        grid-auto-columns: 62%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        margin: 0 -20px;
+        padding: 6px 20px 8px;
+        scroll-padding: 0 20px;
+    }
+
+    .agents-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .agent-card {
-        padding: 14px;
+        scroll-snap-align: start;
     }
 
-    .agent-card .avatar {
-        width: 52px;
-        height: 52px;
+    .agent-photo {
+        flex: none;
+        height: 300px;
+    }
+
+    .ac-msg {
+        font-size: 14.5px;
+        min-height: calc(1.55em * 4);
     }
 
     .sim {
@@ -2538,5 +2719,11 @@ body.is-locked {
         width: calc(100% - 24px);
         justify-content: space-between;
         bottom: 12px;
+    }
+}
+
+@media (max-width: 720px) {
+    .ac-status span {
+        display: none;
     }
 }

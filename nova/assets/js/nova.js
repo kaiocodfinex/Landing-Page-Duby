@@ -460,12 +460,90 @@
     }
     new IntersectionObserver(([e]) => { simInView = e.isIntersecting; updateFloat(); }, { threshold: .25 }).observe(sim);
 
-    // "Conheça os agentes": highlight the agent cards
+    /* ─────────────── Agentes de IA: cards + console ─────────────── */
+    const agentCards = $$('.agent-card');
+    const agentsGrid = $('#agentesGrid');
+    const agentsPanel = $('.agents-panel');
+    const consoleEl = $('#agentConsole');
+    const ac = { avatar: $('#acAvatar'), name: $('#acName'), area: $('#acArea'), msg: $('#acMsg'), chips: $('#acChips') };
+    const AGENT_MS = 7000;
+    let agentIdx = 0, agentStart = 0, agentRaf = null, agentVisible = false, agentPaused = false, pausedAt = 0, agentTyper = null;
+
+    const typeConsole = (text, done) => {
+        clearInterval(agentTyper);
+        if (reduceMotion) { ac.msg.textContent = text; done(); return; }
+        consoleEl.classList.add('is-typing');
+        ac.msg.textContent = '';
+        let i = 0;
+        agentTyper = setInterval(() => {
+            i += 2;
+            ac.msg.textContent = text.slice(0, i);
+            if (i >= text.length) { clearInterval(agentTyper); ac.msg.textContent = text; done(); }
+        }, 22);
+    };
+
+    const showAgent = (i, { focus = false, scroll = true } = {}) => {
+        agentIdx = i;
+        const card = agentCards[i];
+        agentCards.forEach((c, j) => {
+            const on = j === i;
+            c.classList.toggle('is-active', on);
+            c.setAttribute('aria-selected', String(on));
+            c.tabIndex = on ? 0 : -1;
+            $('.agent-progress i', c).style.setProperty('--p', 0);
+        });
+        if (focus) card.focus({ preventScroll: true });
+        // mobile carousel: bring the active card into view without moving the page
+        if (scroll && agentsGrid.scrollWidth > agentsGrid.clientWidth + 4) {
+            agentsGrid.scrollTo({ left: card.offsetLeft - 20, behavior: reduceMotion ? 'auto' : 'smooth' });
+        }
+        const d = card.dataset;
+        ac.avatar.src = `assets/img/agentes/${d.agentKey}.jpg`;
+        ac.name.textContent = d.agentName;
+        ac.area.textContent = `Agente de IA · ${d.agentArea}`;
+        ac.chips.innerHTML = d.agentChips.split('|').map(c => `<span>${c}</span>`).join('');
+        typeConsole(d.agentMsg, () => consoleEl.classList.remove('is-typing'));
+        agentStart = performance.now();
+    };
+
+    // progress bar + auto-advance, only while on screen and not hovered/focused
+    const agentTick = (now) => {
+        agentRaf = requestAnimationFrame(agentTick);
+        if (!agentVisible || agentPaused || document.hidden) return;
+        const p = Math.min(1, (now - agentStart) / AGENT_MS);
+        $('.agent-progress i', agentCards[agentIdx]).style.setProperty('--p', p.toFixed(4));
+        if (p >= 1) showAgent((agentIdx + 1) % agentCards.length);
+    };
+
+    const pauseAgents = () => { if (!agentPaused) { agentPaused = true; pausedAt = performance.now(); } };
+    const resumeAgents = () => { if (agentPaused) { agentPaused = false; agentStart += performance.now() - pausedAt; } };
+
+    agentCards.forEach((c, i) => {
+        c.addEventListener('click', () => showAgent(i));
+        c.addEventListener('keydown', (e) => {
+            if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+            e.preventDefault();
+            showAgent((i + (e.key === 'ArrowRight' ? 1 : -1) + agentCards.length) % agentCards.length, { focus: true });
+        });
+    });
+
+    if (!reduceMotion) {
+        agentsPanel.addEventListener('mouseenter', pauseAgents);
+        agentsPanel.addEventListener('mouseleave', resumeAgents);
+        agentsPanel.addEventListener('focusin', pauseAgents);
+        agentsPanel.addEventListener('focusout', (e) => { if (!agentsPanel.contains(e.relatedTarget)) resumeAgents(); });
+        new IntersectionObserver(([e]) => {
+            const was = agentVisible;
+            agentVisible = e.isIntersecting;
+            if (agentVisible && !agentRaf) { showAgent(0, { scroll: false }); agentRaf = requestAnimationFrame(agentTick); }
+            else if (agentVisible && !was) agentStart = performance.now();
+        }, { threshold: .35 }).observe(agentsPanel);
+    }
+
+    // "Conheça os agentes": restart the tour from the first agent
     $$('[data-highlight-agents]').forEach(b => b.addEventListener('click', () => {
-        const panel = $('.agents-panel');
-        panel.classList.remove('is-highlight');
-        void panel.offsetWidth;
-        panel.classList.add('is-highlight');
+        agentPaused = false;
+        showAgent(0);
     }));
 
     render();
