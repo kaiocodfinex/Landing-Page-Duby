@@ -2,6 +2,8 @@
 (() => {
     'use strict';
 
+    // Pasta assets/ da página, resolvida a partir deste arquivo (funciona na raiz ou em subpasta)
+    const ASSETS = new URL('../', document.currentScript.src).href;
     const $ = (s, el = document) => el.querySelector(s);
     const $$ = (s, el = document) => [...el.querySelectorAll(s)];
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -498,7 +500,7 @@
             agentsGrid.scrollTo({ left: card.offsetLeft - 20, behavior: reduceMotion ? 'auto' : 'smooth' });
         }
         const d = card.dataset;
-        ac.avatar.src = `assets/img/agentes/${d.agentKey}.jpg`;
+        ac.avatar.src = `${ASSETS}img/agentes/${d.agentKey}.jpg`;
         ac.name.textContent = d.agentName;
         ac.area.textContent = `Agente de IA · ${d.agentArea}`;
         ac.chips.innerHTML = d.agentChips.split('|').map(c => `<span>${c}</span>`).join('');
@@ -627,6 +629,7 @@
             lead.hidden = true;
             document.body.classList.remove('is-locked');
             if (!success.hidden) { form.reset(); $$('.field', form).forEach(f => f.classList.remove('has-error')); }
+            $('#leadError').hidden = true;
             lastFocus && lastFocus.focus && lastFocus.focus();
         };
         if (hasGsap && !reduceMotion) {
@@ -665,8 +668,39 @@
 
     $$('input', form).forEach(i => i.addEventListener('input', () => i.closest('.field') && i.closest('.field').classList.remove('has-error')));
 
-    form.addEventListener('submit', (e) => {
+    // Envio para a planilha (Google Apps Script). O endereço fica no atributo
+    // data-endpoint do <form id="leadForm">, para trocar sem mexer no JS.
+    const submitBtn = $('#leadSubmit');
+    const submitLabel = submitBtn.innerHTML;
+    const sendError = $('#leadError');
+    let sending = false;
+
+    const enviarLead = async (payload) => {
+        const endpoint = (form.dataset.endpoint || '').trim();
+        if (!endpoint) throw new Error('data-endpoint do formulário não configurado');
+        // text/plain + no-cors: o Apps Script recebe sem pré-verificação de CORS.
+        // A resposta é opaca: se o fetch resolveu, a requisição chegou ao Google.
+        await Promise.race([
+            fetch(endpoint, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(payload),
+                keepalive: true,
+            }),
+            new Promise((_, reject) => setTimeout(() => reject(new Error('tempo esgotado')), 15000)),
+        ]);
+    };
+
+    const registrarConversao = () => {
+        try { if (typeof window.fbq === 'function') window.fbq('track', 'Lead'); } catch (_) { /* sem Pixel */ }
+        try { if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead'); } catch (_) { /* sem GA4 */ }
+    };
+
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        if (sending) return;
+        sendError.hidden = true;
         const v = (n) => form.elements[n].value.trim();
         const checksForm = {
             nome: v('nome').length > 1,
@@ -684,14 +718,41 @@
         if (firstBad) { firstBad.focus(); return; }
 
         const payload = Object.fromEntries(new FormData(form).entries());
+        const params = new URLSearchParams(window.location.search);
         Object.assign(payload, {
-            origem: 'LP DUBY (nova)',
+            origem: 'Site DUBY',
             url: window.location.href,
             referrer: document.referrer || 'direto',
+            utm_source: params.get('utm_source') || '',
+            utm_medium: params.get('utm_medium') || '',
+            utm_campaign: params.get('utm_campaign') || '',
             timestamp: new Date().toISOString(),
         });
-        // A equipe do cliente conecta o envio ouvindo este evento (ver comentário no HTML).
-        window.dispatchEvent(new CustomEvent('duby:lead', { detail: payload }));
+
+        // Campo invisível preenchido = robô: finge sucesso e não envia nada.
+        if (!payload.website) {
+            sending = true;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando…';
+            try {
+                delete payload.website;
+                await enviarLead(payload);
+            } catch (err) {
+                console.error('Falha ao enviar o formulário:', err);
+                sending = false;
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = submitLabel;
+                icons();
+                sendError.hidden = false;
+                return;
+            }
+            sending = false;
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = submitLabel;
+            registrarConversao();
+            // Mantido para quem quiser ouvir o envio em outras integrações.
+            window.dispatchEvent(new CustomEvent('duby:lead', { detail: payload }));
+        }
 
         content.hidden = true;
         success.hidden = false;

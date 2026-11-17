@@ -2310,6 +2310,31 @@ h2 {
     display: block;
 }
 
+/* Campo invisível contra robôs (fora da tela, não some do DOM) */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.lead-error {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #FEF2F2;
+    color: #B91C1C;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+#leadSubmit:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
 .lead-privacy {
     display: flex;
     align-items: center;

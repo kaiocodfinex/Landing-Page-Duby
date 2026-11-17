@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Duby | Inteligência Estratégica para Empresas</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNyAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyLjk1IDUuMzYzMDVDMTQuMDcgNy4zMTMwNSAxMy4zMiAxMC4wOTMgMTEuMTkgMTEuMzIzQzkuMDYwMDIgMTIuNTUzIDYuMjcwMDEgMTEuODIzMSA1LjE1MDAxIDkuODczMDZMNC41ODAwMSA4Ljg5MzA1QzQuNDAwMDEgOC41NzMwNSA0LjUxMDAxIDguMTYzMDYgNC44MzAwMSA3Ljk3MzA2TDExLjQ3IDQuMTQzMDVDMTEuNzkgMy45NTMwNSAxMi4yIDQuMDYzMDcgMTIuMzkgNC4zODMwN0wxMi45NiA1LjM2MzA1SDEyLjk1Wk0xMi45NCAwLjE2MzA2NUw5LjMzMDAxIDIuMjUzMDZDOC4zNzAwMSAyLjgxMzA2IDcuMyAxLjkwMzA0IDYuMTQgMi41NzMwNEM0Ljc3IDMuMzYzMDQgNS40MDAwMSA0LjUyMzA0IDQuMjcwMDEgNS4xNzMwNEwwLjY2MDAyNCA3LjI2MzA0QzAuMDMwMDIzOSA3LjYzMzA0IC0wLjE4OTk4NyA4LjQ0MzA1IDAuMTgwMDEzIDkuMDgzMDVDMC40NzAwMTMgOS41ODMwNSAxLjAzMDAzIDkuODIzMDYgMS41NzAwMyA5LjcyMzA2QzEuODQwMDMgOS42NzMwNiAyLjEyMDAzIDkuNzgzMDUgMi4yNjAwMyAxMC4wMjMxTDIuOTIwMDMgMTEuMTczQzQuNTkwMDMgMTQuMDYzIDguMzcwMDEgMTUuMzIzMSAxMS41MiAxNC4xNTMxQzExLjY5IDE0LjA5MzEgMTEuODcgMTQuMDgzMSAxMi4wMyAxNC4xNTMxQzEyLjI3IDE0LjI2MzEgMTIuNTYgMTQuMjYzIDEyLjgxIDE0LjExM0MxMy4wNiAxMy45NzMgMTMuMjEgMTMuNzIzIDEzLjIzIDEzLjQ1M0MxMy4yNSAxMy4yNzMgMTMuMzQgMTMuMTIzIDEzLjQ4IDEzLjAxM0MxNi4wOCAxMC44NjMgMTYuODggNi45NjMwNCAxNS4yMSA0LjA3MzA0TDE0LjU2IDIuOTUzMDRDMTQuNDIgMi43MTMwNCAxNC40NCAyLjQwMzA2IDE0LjYzIDIuMTkzMDZDMTQuOTggMS43NzMwNiAxNS4wNiAxLjE2MzA3IDE0Ljc3IDAuNjYzMDY1QzE0LjQxIDAuMDMzMDY1MiAxMy42IC0wLjE4Njk1NiAxMi45NiAwLjE3MzA0NCIgZmlsbD0iIzQxMjg4NCIvPgo8L3N2Zz4="/>
+    <meta name="description" content="Sua empresa vende mais, mas o dinheiro não aparece? A Duby transforma seus números em decisões que aumentam o lucro e reduzem desperdícios." />
+
+    <!-- SEO: endereço oficial (evita duplicar duby.com.br e www.duby.com.br) -->
+    <link rel="canonical" href="https://duby.com.br/" />
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- Página antiga guardada para consulta/reversão; a página oficial é a raiz (index.html) -->
+
+    <!-- Google Search Console: cole aqui a tag de verificação quando criar a conta -->
+    <!-- <meta name="google-site-verification" content="SEU_CODIGO_AQUI" /> -->
+
+    <!-- Prévia ao compartilhar no WhatsApp, LinkedIn, Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Duby" />
+    <meta property="og:url" content="https://duby.com.br/" />
+    <meta property="og:title" content="Duby | Inteligência Estratégica para Empresas" />
+    <meta property="og:description" content="Sua empresa vende mais, mas o dinheiro não aparece? A Duby transforma os dados do seu ERP em decisões que aumentam o lucro." />
+    <meta property="og:image" content="https://duby.com.br/assets/images/dashboards/bi-comercial-clientes.jpg" />
+    <meta property="og:image:alt" content="Painel de inteligência comercial da Duby" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Dados da empresa para o Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Duby",
+      "alternateName": "Duby Inteligência e Organização Empresarial",
+      "description": "A Duby une tecnologia e gestão para organizar seus processos, analisar seus dados e acompanhar indicadores que ajudam a identificar desperdícios, reduzir custos e melhorar a operação.",
+      "url": "https://duby.com.br/",
+      "logo": "https://duby.com.br/assets/images/marca/Marca%20Duby.svg",
+      "image": "https://duby.com.br/assets/images/dashboards/bi-comercial-clientes.jpg",
+      "telephone": "+55-79-99975-1825",
+      "email": "contato@duby.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Aracaju",
+        "addressRegion": "SE",
+        "addressCountry": "BR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": -10.922524, "longitude": -37.0667268 },
+      "areaServed": "BR",
+      "sameAs": [
+        "https://www.instagram.com/duby.ie/",
+        "https://www.linkedin.com/company/duby-intelig%C3%AAncia-e-organiza%C3%A7%C3%A3o-empresariall"
+      ]
+    }
+    </script>
+
+        <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VGGMGMQ9HW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VGGMGMQ9HW');
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1137815308614060');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1137815308614060&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <!-- Google Fonts for Typography fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- External Libraries -->
+    <!-- GSAP for Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@1.69.0/dist/umd/lucide.min.js"></script>
+    <!-- Vanilla Tilt for Dashboard Interaction -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20261106">
+
+    <!-- Fix Scroll Position on Refresh -->
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                window.scrollTo(0, 0);
+            }, 10);
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Floating Header -->
+    <header class="header-section" id="mainHeader">
+        <div class="header-container">
+            <a href="#inicio" class="header-logo">
+                <img src="assets/images/marca/Marca Duby.svg" alt="Duby Logo">
+            </a>
+
+            <nav class="header-nav">
+                <a href="#inicio" class="header-nav-link">In&iacute;cio</a>
+                <a href="#dashboards-home" class="header-nav-link">Dashboards</a>
+                <a href="#funcionalidades" class="header-nav-link">M&oacute;dulos</a>
+                <a href="#planos" class="header-nav-link">Planos</a>
+                <a href="#faq" class="header-nav-link">FAQ</a>
+            </nav>
+
+            <a href="#diagnostico" class="header-cta-btn">
+                Agendar diagn&oacute;stico
+            </a>
+
+            <button class="header-mobile-toggle" aria-label="Menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <button class="mobile-menu-close" id="closeMobileMenu" aria-label="Close Menu">
+            <i data-lucide="x"></i>
+        </button>
+        <nav class="mobile-menu-nav">
+            <a href="#inicio" class="mobile-menu-link">Início</a>
+            <a href="#dashboards-home" class="mobile-menu-link">Dashboards</a>
+            <a href="#funcionalidades" class="mobile-menu-link">Módulos</a>
+            <a href="#planos" class="mobile-menu-link">Planos</a>
+            <a href="#faq" class="mobile-menu-link">FAQ</a>
+            <a href="#diagnostico" class="mobile-menu-cta">Agendar diagnóstico</a>
+        </nav>
+    </div>
+
+    <section class="hero" id="inicio">
+        <!-- Floating Particles Container -->
+        <div class="particles" id="particles-container"></div>
+
+        <!-- Main Hero Content -->
+        <div class="hero-content">
+            <!-- Eyebrow -->
+            <div class="hero-badge">
+                <i data-lucide="zap" class="hero-badge-icon"></i>
+                <div class="hero-badge-text">Inteligência Estratégica para Empresas</div>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="hero-headline"
+                style="font-size: 52px; line-height: 1.15; max-width: 800px; margin: 0 auto 24px;">
+                <span>Sua empresa vende mais…<br>mas o dinheiro não aparece<br>no final do mês.</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="hero-description">
+                A Duby entra na sua operação, organiza seus dados e transforma seus números em decisões estratégicas
+                que aumentam o lucro e reduzem desperdícios.
+            </p>
+
+            <!-- Actions -->
+            <div class="hero-ctas" style="margin-bottom: 12px;">
+                <a href="#diagnostico" class="button button-primary">
+                    <span>Quero meu diagnóstico estratégico gratuito</span>
+                    <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    <div class="button-border"></div>
+                </a>
+            </div>
+
+            <!-- Microtext -->
+            <div style="font-size: 13px; color: var(--text-muted); opacity: 0; margin-bottom: 40px;"
+                class="hero-microtext">
+                Sem compromisso. Avaliação personalizada.
+            </div>
+
+            <!-- Trust / Micro proofs -->
+            <div class="hero-proofs">
+                <div class="hero-proof-item">
+                    <i data-lucide="layout-dashboard"></i> Dashboards claros e executivos
+                </div>
+                <div class="hero-proof-item">
+                    <i data-lucide="activity"></i> Indicadores em tempo real
+                </div>
+                <div class="hero-proof-item">
+                    <i data-lucide="target"></i> Visão estratégica para tomada de decisão
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Mockup -->
+        <div class="dashboard-wrapper" id="dashboards-home">
+            <div class="dashboard-mockup" data-tilt data-tilt-max="3" data-tilt-speed="400" data-tilt-perspective="1500"
+                data-tilt-glare="true" data-tilt-max-glare="0.1">
+
+                <!-- Mockup OS Topbar -->
+                <div class="db-topbar">
+                    <div class="db-dots">
+                        <div class="db-dot red"></div>
+                        <div class="db-dot yellow"></div>
+                        <div class="db-dot green"></div>
+                    </div>
+                    <div class="db-brand">
+                        <i data-lucide="layers"></i> Duby Analytics
+                    </div>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div class="db-content" style="padding: 24px;">
+                    <div class="db-slider-container">
+                        <div class="db-slider">
+                            <div class="db-slide">
+                                <img src="assets/images/dashboards/bi-comercial-vendedores-metas.jpg" alt="Duby Analytics: metas dos vendedores, quem atingiu e quanto falta para cada um"
+                                    loading="lazy" />
+                            </div>
+                            <div class="db-slide">
+                                <img src="assets/images/dashboards/bi-comercial-clientes.jpg" alt="Duby Analytics: clientes e distribuição de recência"
+                                    loading="lazy" />
+                            </div>
+                            <div class="db-slide">
+                                <img src="assets/images/dashboards/bi-comercial-faturamento.jpg" alt="Duby Analytics: faturamento no tempo com previsão"
+                                    loading="lazy" />
+                            </div>
+                        </div>
+                        <div class="slider-controls">
+                            <button class="slider-btn prev-btn"><i data-lucide="arrow-left"></i></button>
+                            <button class="slider-btn next-btn"><i data-lucide="arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section / Second Fold -->
+    <section class="features" id="problemas">
+        <div class="features-container">
+            <div class="features-header">
+                <p class="features-subtitle"
+                    style="margin-bottom: 12px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; font-size: 14px; background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+                    Improviso custa caro.</p>
+                <h2 class="features-title">Sem dados claros, sua empresa convive com:</h2>
+            </div>
+
+            <div class="features-grid features-grid-5" id="cards-grid">
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="shopping-cart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Compras no achismo</h3>
+                        <p>Você compra pela intuição, não pela estatística de venda.
+                            Resultado: excesso do que não gira e falta do que mais vende.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="package"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Dinheiro parado no estoque</h3>
+                        <p>Produtos sem giro ocupam espaço e prendem o capital
+                            que deveria estar no seu caixa.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="wallet"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Caixa apertado</h3>
+                        <p>O faturamento existe, mas o dinheiro some antes do fim do mês.
+                            Fica difícil pagar, investir e planejar.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="shield-alert"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Perdas por furto, avaria e validade</h3>
+                        <p>Sem controle, os produtos se perdem no caminho
+                            e o prejuízo só aparece quando já é tarde.</p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Cada vez mais espaço e pessoas</h3>
+                        <p>A operação pede mais estrutura e mais gente,
+                            sem que o lucro cresça na mesma proporção.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section / O que a Duby faz (vídeo do aplicativo) -->
+    <section class="diff-section solution-section" id="solucao">
+        <div class="diff-container">
+
+            <!-- LEFT: App video -->
+            <div class="diff-visual diff-anim">
+                <div class="solution-video-stage">
+                    <div class="diff-ring"></div>
+                    <div class="diff-ring diff-ring-2"></div>
+                    <div class="diff-glow"></div>
+                    <div class="solution-video-frame">
+                        <video class="solution-video" id="solutionVideo" src="assets/videos/duby-app.mp4"
+                            poster="assets/videos/duby-app-poster.jpg" autoplay muted loop playsinline preload="metadata"
+                            aria-label="Aplicativo da Duby mostrando os indicadores comerciais em um tablet"></video>
+                        <button class="solution-sound-btn" id="solutionSoundBtn" type="button" aria-label="Ativar som do vídeo"
+                            aria-pressed="false">
+                            <i data-lucide="volume-x"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Content -->
+            <div class="diff-content">
+                <div class="diff-header diff-anim">
+                    <p class="diff-eyebrow">O que a Duby faz</p>
+                    <h2 class="diff-title">Seus números viram decisões.<br>Todo mês.</h2>
+                    <p class="diff-subtitle">Organizamos os dados da sua operação e ajudamos você a melhorar 6 decisões que
+                        impactam diretamente o lucro:</p>
+                </div>
+
+                <div class="diff-features solution-features">
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="wallet"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Onde está o meu dinheiro?</h4>
+                            <p>E o que fazer para melhorar o seu caixa.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="badge-dollar-sign"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Produtos lucrativos e produtos vilões</h4>
+                            <p>Saiba quais itens geram lucro e quais estão consumindo sua margem.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="users"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Clientes campeões, com oportunidade e em risco</h4>
+                            <p>Entenda quem sustenta seu faturamento, quem pode comprar mais e quem está indo embora.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="calculator"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Quanto e quando comprar</h4>
+                            <p>A quantidade certa de cada produto, com base na estatística de venda.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="triangle-alert"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Risco de ruptura</h4>
+                            <p>Quais produtos podem faltar e qual o impacto financeiro disso.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="target"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Metas para o time comercial</h4>
+                            <p>Como estruturar metas e acompanhar a evolução de cada vendedor.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Clients Marquee Section / Third Fold -->
+    <section class="clients-marquee-section" id="clientes">
+        <!-- Background Glow -->
+        <div
+            style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:800px; height:300px; background:rgba(186,156,255,0.05); filter:blur(120px); border-radius:100%; pointer-events:none;">
+        </div>
+
+        <div class="clients-eyebrow cl-anim">Empresas que confiam na Duby</div>
+        <h2 class="clients-headline cl-anim">Grandes parcerias constroem <span>grandes resultados.</span></h2>
+
+        <div class="marquee-container cl-anim-late">
+            <div class="marquee-track">
+                <!-- Group 1 -->
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Agua monte claro.svg" alt="Água Monte Claro"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Agua Sao cristovão.png"
+                        alt="Água São Cristóvão" class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Brauna.svg" alt="Braúna"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Aguas do porto.svg" alt="Águas do Porto"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/FMMIX.svg" alt="FMMIX" class="marquee-logo" />
+                </div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/IMG_7148.PNG" alt="Cliente"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/log 2.png" alt="Cliente"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Grupo Caioba.png" alt="Grupo Caioba"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Postos Andrade.png" alt="Postos Andrade"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Camada 1.png" alt="Cliente" class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/POSTO ALIANÇA.svg" alt="Posto Aliança"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/POSTOS EKO.svg" alt="Postos Eko"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/ROCHA ATACADO.svg" alt="Rocha Atacado"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Samam desde 1928.png" alt="Samam"
+                        class="marquee-logo" /></div>
+
+                <!-- Group 2 for seamless loop -->
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Agua monte claro.svg" alt="Água Monte Claro"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Agua Sao cristovão.png"
+                        alt="Água São Cristóvão" class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Brauna.svg" alt="Braúna"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Aguas do porto.svg" alt="Águas do Porto"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/FMMIX.svg" alt="FMMIX" class="marquee-logo" />
+                </div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/IMG_7148.PNG" alt="Cliente"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/log 2.png" alt="Cliente"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Grupo Caioba.png" alt="Grupo Caioba"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Postos Andrade.png" alt="Postos Andrade"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Camada 1.png" alt="Cliente" class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/POSTO ALIANÇA.svg" alt="Posto Aliança"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/POSTOS EKO.svg" alt="Postos Eko"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/ROCHA ATACADO.svg" alt="Rocha Atacado"
+                        class="marquee-logo" /></div>
+                <div class="marquee-item"><img src="assets/images/clientes/Novas Logos/Samam desde 1928.png" alt="Samam"
+                        class="marquee-logo" /></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section / Fourth Fold -->
+    <section class="testimonials" id="depoimentos">
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <p class="testimonials-eyebrow">Depoimentos</p>
+                <h2 class="testimonials-title">Empresas que passaram a decidir com mais clareza</h2>
+                <p class="testimonials-subtitle">Veja como a Duby transforma indicadores, dashboards e acompanhamento
+                    estratégico em decisões mais seguras, previsibilidade e crescimento com controle.</p>
+            </div>
+
+            <div class="testimonial-videos">
+                <figure class="testimonial-video-card t-video-anim">
+                    <div class="testimonial-video-frame">
+                        <video class="testimonial-video" src="assets/videos/depoimento-tarik-grupo-caioba.mp4"
+                            poster="assets/videos/depoimento-tarik-grupo-caioba-poster.jpg" preload="none" playsinline
+                            aria-label="Depoimento de Tarik, do Grupo Caioba"></video>
+                        <button class="testimonial-play-btn" type="button" aria-label="Reproduzir depoimento de Tarik, do Grupo Caioba">
+                            <i data-lucide="play"></i>
+                        </button>
+                    </div>
+                    <figcaption class="testimonial-video-caption">
+                        <strong>Tarik</strong>
+                        <span>Grupo Caioba</span>
+                    </figcaption>
+                </figure>
+
+                <figure class="testimonial-video-card t-video-anim">
+                    <div class="testimonial-video-frame">
+                        <video class="testimonial-video" src="assets/videos/depoimento-icaro-brauna-atacado.mp4"
+                            poster="assets/videos/depoimento-icaro-brauna-atacado-poster.jpg" preload="none" playsinline
+                            aria-label="Depoimento de Icaro Souza, do Braúna Atacado"></video>
+                        <button class="testimonial-play-btn" type="button" aria-label="Reproduzir depoimento de Icaro Souza, do Braúna Atacado">
+                            <i data-lucide="play"></i>
+                        </button>
+                    </div>
+                    <figcaption class="testimonial-video-caption">
+                        <strong>Icaro Souza</strong>
+                        <span>Braúna Atacado</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section / Fifth Fold -->
+    <section class="process" id="metodologia">
+        <div class="process-container">
+            <div class="process-header">
+                <h2 class="process-title">Do seu ERP ao plano de ação: é assim que a Duby trabalha.</h2>
+                <p class="process-subtitle-1">Chega de abrir planilha pra entender seu negócio. A Duby organiza seus dados e entrega painéis que mostram margem, vendas e estoque em tempo real.</p>
+                <p class="process-subtitle-2">Você toma decisão com número, não com intuição.</p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Row 1 -->
+                <div class="bento-card bento-span-3 bg-glow-1 bento-anim">
+                    <div class="bento-icon"><i data-lucide="plug"></i></div>
+                    <h3>1. Conectamos com o seu ERP</h3>
+                    <p>Integramos a Duby ao sistema que você já usa. Seus dados passam a ser organizados automaticamente, sem exportar nem copiar nada.</p>
+                </div>
+                <div class="bento-card bento-span-2 bento-anim">
+                    <div class="bento-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>2. Validamos os dados</h3>
+                    <p>Conferimos os números junto com você para garantir que o que aparece na plataforma é fiel à realidade da empresa.</p>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="bento-card bento-span-2 bento-anim">
+                    <div class="bento-icon"><i data-lucide="graduation-cap"></i></div>
+                    <h3>3. Treinamos sua equipe</h3>
+                    <p>Ensinamos você e seu time a usar a plataforma e o aplicativo, interpretar os indicadores e identificar alertas.</p>
+                </div>
+                <div class="bento-card bento-span-3 bg-glow-2 bento-anim">
+                    <div class="bento-icon"><i data-lucide="users"></i></div>
+                    <h3>4. Analisamos juntos e montamos o plano de ação</h3>
+                    <p>Nos reunimos para analisar os dados lado a lado e definir ações práticas voltadas a resultado.</p>
+                </div>
+
+                <!-- Row 3 (Footer Full Width) -->
+                <div class="bento-card bento-span-5 bg-glow-3 bento-anim">
+                    <div class="bento-icon" style="flex-shrink: 0; align-self: flex-start; margin-right: 12px;"><i
+                            data-lucide="refresh-cw"></i></div>
+                    <div class="bento-content-wide">
+                        <h3>5. Acompanhamento contínuo</h3>
+                        <p>Seguimos com você mês a mês, medindo a evolução e ajustando o plano conforme os resultados aparecem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboards Section / Sixth Fold -->
+    <section class="dash-section" id="funcionalidades">
+        <div class="dash-container">
+            <!-- Left: Text and Ghost Tabs -->
+            <div class="dash-content">
+                <div class="dash-header dash-anim">
+                    <h2>Domine seus números e potencialize sua operação</h2>
+                    <p>Módulos estruturados para conectar cada área do seu negócio com métricas de alta precisão e
+                        estratégias claras.</p>
+                </div>
+
+                <div class="dash-info-card dash-anim" id="dash-info-card">
+                    <!-- Step 0 Content (Initial/Active) -->
+                    <div class="dash-info-step active" data-step="0">
+                        <div class="dash-info-step-header">
+                            <div class="info-icon"><i data-lucide="pie-chart"></i></div>
+                            <h3>Gestão Financeira</h3>
+                        </div>
+                        <p>Este módulo financeiro estrutura os principais indicadores do seu negócio e transforma
+                            números em direcionamento estratégico. Você passa a enxergar margem real, fluxo de caixa,
+                            impacto das compras no lucro e evolução do resultado com clareza.<br><br>Não é
+                            apenas acompanhamento financeiro. É controle, previsibilidade e decisão com segurança.</p>
+                        <a href="#diagnostico" class="dash-btn">Agendar análise gratuita</a>
+                    </div>
+
+                    <!-- Step 1 Content -->
+                    <div class="dash-info-step" data-step="1">
+                        <div class="dash-info-step-header">
+                            <div class="info-icon"><i data-lucide="shopping-cart"></i></div>
+                            <h3>Inteligência de Compras</h3>
+                        </div>
+                        <p>Este módulo estrutura a inteligência de compras da sua empresa, conectando consumo, estoque e
+                            impacto financeiro. Você passa a enxergar onde sua margem está sendo comprometida, quais
+                            produtos imobilizam capital e onde existem oportunidades reais de negociação com
+                            fornecedores.<br><br>Não é apenas controle de estoque. É proteção de caixa e aumento de
+                            eficiência operacional.</p>
+                        <a href="#diagnostico" class="dash-btn">Agendar análise gratuita</a>
+                    </div>
+
+                    <!-- Step 2 Content -->
+                    <div class="dash-info-step" data-step="2">
+                        <div class="dash-info-step-header">
+                            <div class="info-icon"><i data-lucide="trending-up"></i></div>
+                            <h3>Inteligência Comercial</h3>
+                        </div>
+                        <p>Este módulo estrutura a inteligência comercial da sua empresa, conectando vendas, clientes e
+                            resultado financeiro em uma visão estratégica única. Você passa a enxergar não apenas quanto
+                            vende, mas onde está crescendo, onde está perdendo oportunidades e qual é o impacto real das
+                            decisões comerciais na margem.<br><br>Não é apenas acompanhamento de faturamento. É
+                            previsibilidade, performance e crescimento orientado por dados.</p>
+                        <a href="#diagnostico" class="dash-btn">Agendar análise gratuita</a>
+                    </div>
+                </div>
+
+                <!-- Secondary Titles (Ghosted/Idle items under the card) -->
+                <div class="dash-idle-tabs dash-anim">
+                    <div class="dash-idle-tab" data-target="0" style="display: none;">
+                        <div class="tab-icon"><i data-lucide="pie-chart"></i></div>
+                        <h3>Gestão Financeira</h3>
+                    </div>
+                    <div class="dash-idle-tab" data-target="1">
+                        <div class="tab-icon"><i data-lucide="shopping-cart"></i></div>
+                        <h3>Inteligência de Compras</h3>
+                    </div>
+                    <div class="dash-idle-tab" data-target="2">
+                        <div class="tab-icon"><i data-lucide="trending-up"></i></div>
+                        <h3>Inteligência Comercial</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Sliding Visuals -->
+            <div class="dash-visuals dash-anim">
+                <div class="dash-track" id="dash-slider">
+                    <!-- Object-fit contain to preserve all info in dash -->
+                    <div class="dash-slide">
+                        <img src="assets/images/dashboards/bi-financeiro-orcamento.jpg"
+                            alt="Dashboard Financeiro: orçado x realizado" loading="lazy">
+                    </div>
+                    <div class="dash-slide">
+                        <img src="assets/images/dashboards/bi-compras-comprador-inteligente.jpg"
+                            alt="Dashboard Compras: comprador inteligente com sugestão de compra" loading="lazy">
+                    </div>
+                    <div class="dash-slide">
+                        <img src="assets/images/dashboards/bi-comercial-metas.jpg"
+                            alt="Dashboard Comercial: metas, burn-up e atingimento histórico" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Reference Carousel Nav Buttons -->
+                <div class="dash-controls">
+                    <button class="dash-control-btn" id="dash-prev">
+                        <i data-lucide="chevron-left"></i>
+                    </button>
+                    <button class="dash-control-btn" id="dash-next">
+                        <i data-lucide="chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Differentials Section / Seventh Fold -->
+    <section class="diff-section" id="diferenciais">
+        <div class="diff-container">
+
+            <!-- LEFT: 3D Brand Symbol -->
+            <div class="diff-visual diff-anim">
+                <div class="diff-symbol-wrap">
+                    <!-- Ambient rings -->
+                    <div class="diff-ring"></div>
+                    <div class="diff-ring diff-ring-2"></div>
+                    <!-- Pulse glow -->
+                    <div class="diff-glow"></div>
+                    <!-- 3D Symbol -->
+                    <img class="diff-symbol-img" src="assets/images/marca/Camada%201.png" alt="Duby 3D Symbol">
+                </div>
+            </div>
+
+            <!-- RIGHT: Content -->
+            <div class="diff-content">
+                <div class="diff-header diff-anim">
+                    <p class="diff-eyebrow">Nossos diferenciais</p>
+                    <h2 class="diff-title">Por que a Duby n&atilde;o &eacute; um BI comum?</h2>
+                    <p class="diff-subtitle">Enquanto muitas empresas vendem dashboards, n&oacute;s estruturamos a
+                        gest&atilde;o atrav&eacute;s de dados.</p>
+                </div>
+
+                <div class="diff-features">
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="search"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Diagn&oacute;stico antes da tecnologia</h4>
+                            <p>Antes de construir qualquer painel, entendemos sua opera&ccedil;&atilde;o, gargalos e
+                                objetivos estrat&eacute;gicos.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="target"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Indicadores que orientam decis&otilde;es</h4>
+                            <p>N&atilde;o entregamos gr&aacute;ficos. Definimos KPIs que mostram onde agir para proteger
+                                margem e crescer com controle.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="calendar-check"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Treinamento completo</h4>
+                            <p>Não basta ter o dashboard no ar. Treinamos você e sua equipe para interpretar os indicadores, identificar alertas e tomar decisão com os dados no dia a dia.</p>
+                        </div>
+                    </div>
+
+                    <div class="diff-feature diff-feat-anim">
+                        <div class="diff-feature-icon"><i data-lucide="git-merge"></i></div>
+                        <div class="diff-feature-body">
+                            <h4>Integra&ccedil;&atilde;o entre &aacute;reas</h4>
+                            <p>Compras, Comercial, Financeiro e Log&iacute;stica n&atilde;o funcionam isolados. Conectamos tudo em
+                                uma vis&atilde;o estrat&eacute;gica &uacute;nica com foco no impacto financeiro real.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Princing Section / Eighth Fold -->
+    <section class="pricing-section" id="pacotes">
+        <div class="pricing-container">
+
+            <div class="pricing-header prc-anim" style="margin-bottom: 40px;">
+                <div class="pricing-eyebrow">O que voc&ecirc; recebe</div>
+                <h2 class="pricing-title">Tecnologia para mostrar os números. <span>Especialistas para ajudar na decisão.</span></h2>
+                <p class="pricing-subtitle">Ao contratar a Duby, você recebe:</p>
+            </div>
+
+            <style>
+                /* Efeito de blur premium nos demais elementos quando um recebe hover */
+                .blur-effect-container:hover .diff-feature:not(:hover) {
+                    filter: blur(4px);
+                    opacity: 0.6;
+                    transform: scale(0.98);
+                }
+                .blur-effect-container .diff-feature {
+                    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+                    cursor: default;
+                }
+                .blur-effect-container .diff-feature:hover {
+                    transform: scale(1.02);
+                    z-index: 10;
+                    border-color: rgba(147, 130, 255, 0.4);
+                }
+            </style>
+
+            <div class="diff-features blur-effect-container" style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px;">
+
+                <!-- Item 1 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="monitor"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Plataforma em tempo real</h4>
+                        <p>Os números da sua empresa atualizados automaticamente, em um só lugar.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="smartphone"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Aplicativo</h4>
+                        <p>Acompanhe seus indicadores de qualquer lugar, no celular ou no tablet.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="chart-line"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Projeções financeiras e análises avançadas</h4>
+                        <p>Antecipe cenários e entenda o que está por trás de cada resultado.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="users"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Reuniões com especialistas</h4>
+                        <p>Analistas da Duby ao seu lado para interpretar os dados e decidir melhor.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="diff-feature diff-feat-anim">
+                    <div class="diff-feature-icon"><i data-lucide="list-checks"></i></div>
+                    <div class="diff-feature-body">
+                        <h4>Plano de ação para gerar resultado</h4>
+                        <p>Prioridades claras, com responsáveis e acompanhamento.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="deliverables-note prc-anim">*As entregas variam de acordo com o plano escolhido.</p>
+
+        </div>
+    </section>
+
+    <!-- Plans Section / Planos Duby -->
+    <section class="pricing-section plans-section" id="planos">
+        <div class="pricing-container">
+
+            <div class="pricing-header prc-anim">
+                <div class="pricing-eyebrow">Planos Duby</div>
+                <h2 class="pricing-title">Três níveis. <span>Uma evolução simples.</span></h2>
+                <p class="pricing-subtitle">Comece com clareza. Evolua para inteligência. Escale com acompanhamento e
+                    personalização.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Plano: Controle -->
+                <div class="pricing-card pricing-card-default prc-card-anim">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-card-name">Controle</h3>
+                        <p class="pricing-card-desc">Para empresas que precisam enxergar seus números sem depender de planilhas.</p>
+                        <div class="pricing-card-price">
+                            <span class="pricing-price-prefix" aria-hidden="true">&nbsp;</span>
+                            <span class="pricing-price-value">R$ 790<span class="pricing-price-period">/mês</span></span>
+                        </div>
+                    </div>
+                    <div class="pricing-features-list">
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Financeiro</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Comercial</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Compras</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Logística</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano: Inteligência -->
+                <div class="pricing-card pricing-card-popular pricing-card-featured prc-card-anim">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-card-name">Inteligência</h3>
+                        <p class="pricing-card-desc">Para empresas que querem sair do acompanhamento e começar a antecipar problemas.</p>
+                        <div class="pricing-card-price">
+                            <span class="pricing-price-prefix" aria-hidden="true">&nbsp;</span>
+                            <span class="pricing-price-value">R$ 1.490<span class="pricing-price-period">/mês</span></span>
+                        </div>
+                    </div>
+                    <div class="pricing-features-list">
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Tudo do Controle</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Análise por IA</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Metas</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Planejamento orçamentário</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plano: Performance -->
+                <div class="pricing-card pricing-card-default prc-card-anim">
+                    <div class="pricing-card-header">
+                        <h3 class="pricing-card-name">Performance</h3>
+                        <p class="pricing-card-desc">Para empresas que desejam especialistas acompanhando a gestão e transformando análises em ações.</p>
+                        <div class="pricing-card-price">
+                            <span class="pricing-price-prefix">A partir de</span>
+                            <span class="pricing-price-value">R$ 2.990<span class="pricing-price-period">/mês</span></span>
+                        </div>
+                    </div>
+                    <div class="pricing-features-list">
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Tudo do Inteligência</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Acompanhamento com especialistas</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Plano de ação</div>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <div class="pricing-feature-icon"><i data-lucide="check"></i></div>
+                            <div class="pricing-feature-text">Análise de resultados</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="plans-cta prc-anim">
+                <p>Ficou com dúvida? No diagnóstico gratuito ajudamos você a escolher o plano ideal para o momento da sua
+                    empresa.</p>
+                <a href="#diagnostico" class="button button-primary">
+                    <span>Quero meu diagnóstico gratuito</span>
+                    <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                    <div class="button-border"></div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ Section / Ninth Fold -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <div class="faq-header faq-anim">
+                <h2 class="faq-title">D&uacute;vidas Frequentes</h2>
+                <p class="faq-subtitle">As respostas para as principais perguntas sobre como a Duby estrutura dados,
+                    indicadores e decis&otilde;es estrat&eacute;gicas para empresas.</p>
+            </div>
+
+            <div class="faq-list">
+
+                <div class="faq-item faq-item-anim active">
+                    <button class="faq-question">
+                        Preciso trocar meu sistema ou ERP?
+                        <div class="faq-icon"><i data-lucide="plus"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
+                                <p>Não. Integramos com o sistema que você já usa, ERP, planilha ou software de gestão. Não é necessário mudar nada na sua operação atual.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item-anim">
+                    <button class="faq-question">
+                        Em quanto tempo os dashboards ficam prontos?
+                        <div class="faq-icon"><i data-lucide="plus"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
+                                <p>O prazo de implementação fica entre 15 e 30 dias, a partir da conexão com o seu sistema. Depois disso, seus painéis já estão ativos com seus dados reais e realizamos o treinamento com sua equipe.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item-anim">
+                    <button class="faq-question">
+                        E se o meu sistema não liberar acesso aos dados?
+                        <div class="faq-icon"><i data-lucide="plus"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
+                                <p>A integração depende do seu sistema disponibilizar os dados via o acesso direto ao banco. Caso isso não seja possível de forma nativa, será necessária uma implementação técnica adicional, que é cotada separadamente e cobrada antes do início do projeto. Nesse caso, apresentamos o escopo e o custo antes de qualquer avanço.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item-anim">
+                    <button class="faq-question">
+                        Como funciona o treinamento?
+                        <div class="faq-icon"><i data-lucide="plus"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
+                                <p>O treinamento é realizado online, com os responsáveis pela operação da ferramenta na sua empresa. Apresentamos o funcionamento da plataforma e do aplicativo, explicamos cada indicador e ensinamos como interpretar os dados no dia a dia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item-anim">
+                    <button class="faq-question">
+                        Minha empresa é pequena. Faz sentido contratar?
+                        <div class="faq-icon"><i data-lucide="plus"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
+                                <p>Sim. Se você ainda toma decisões com base em planilhas ou intuição, a Duby organiza seus dados e coloca os indicadores certos na tela, independente do tamanho da operação. O plano Controle é a porta de entrada ideal para começar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item-anim">
+                    <button class="faq-question">
+                        É necessário ter equipe de TI?
+                        <div class="faq-icon"><i data-lucide="plus"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
+                                <p>Não. A implementação é feita pela Duby do início ao fim. Sua equipe só precisa participar do treinamento de uso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item-anim">
+                    <button class="faq-question">
+                        Qual a diferença entre os planos?
+                        <div class="faq-icon"><i data-lucide="plus"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
+                                <p>Todos os planos incluem as áreas Financeiro, Comercial, Compras e Logística. O que muda é a profundidade: o Inteligência adiciona análise por IA, metas e planejamento orçamentário, e o Performance inclui acompanhamento com especialistas, plano de ação e análise de resultados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item faq-item-anim">
+                    <button class="faq-question">
+                        O que muda na prática depois que a Duby é implementada?
+                        <div class="faq-icon"><i data-lucide="plus"></i></div>
+                    </button>
+                    <div class="faq-answer-wrapper">
+                        <div class="faq-answer-inner">
+                            <div class="faq-answer-content">
+                                <p>Sua equipe para de abrir planilha para entender os números. Você passa a ter margem real, evolução de vendas, controle de compras e fluxo de caixa em um único lugar, atualizado automaticamente e acessível pelo aplicativo de qualquer lugar. E, com o plano de ação, cada número vira uma decisão prática.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Section / Tenth Fold -->
+    <section class="lead-section" id="diagnostico">
+        <div class="lead-container">
+
+            <!-- Left Column: Visual Panel -->
+            <div class="lead-visual-panel lead-panel-anim">
+                <div class="lead-panel-bg"></div>
+                <div class="lead-panel-glow"></div>
+                <div class="lead-panel-blur"></div>
+
+                <div class="lead-panel-content">
+                    <div class="lead-badge">Diagn&oacute;stico Estrat&eacute;gico Duby</div>
+
+                    <h2 class="lead-title">
+                        Clareza estrat&eacute;gica para <span>decidir com seguran&ccedil;a.</span>
+                    </h2>
+
+                    <p class="lead-description">
+                        Em uma conversa de 30 minutos analisamos como sua empresa organiza dados, indicadores e
+                        decis&otilde;es estrat&eacute;gicas.
+                    </p>
+
+                    <div class="lead-benefits">
+                        <div class="lead-benefits-title">Voc&ecirc; sair&aacute; com:</div>
+                        <ul class="lead-benefits-list">
+                            <li class="lead-benefit-item">
+                                <span class="lead-benefit-dot"></span>
+                                Vis&atilde;o clara do n&iacute;vel atual da gest&atilde;o
+                            </li>
+                            <li class="lead-benefit-item">
+                                <span class="lead-benefit-dot"></span>
+                                Principais oportunidades de melhoria
+                            </li>
+                            <li class="lead-benefit-item">
+                                <span class="lead-benefit-dot"></span>
+                                Pr&oacute;ximos passos para estruturar intelig&ecirc;ncia estrat&eacute;gica
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="lead-flow">
+                        <div class="lead-flow-step">
+                            <div class="lead-flow-number">1</div>
+                            <div class="lead-flow-text">Preencha o formul&aacute;rio</div>
+                        </div>
+                        <div class="lead-flow-step active">
+                            <div class="lead-flow-number">2</div>
+                            <div class="lead-flow-text">Agende o diagn&oacute;stico</div>
+                        </div>
+                        <div class="lead-flow-step">
+                            <div class="lead-flow-number">3</div>
+                            <div class="lead-flow-text">Receba direcionamento estrat&eacute;gico</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Form -->
+            <div class="lead-form-panel lead-form-anim">
+                <div class="lead-form-box relative">
+
+                    <div class="lead-form-header">
+                        <h3 class="lead-form-title">Solicitar An&aacute;lise de Maturidade</h3>
+                        <p class="lead-form-subtitle">Preencha os dados abaixo e entraremos em contato para agendar o
+                            seu diagn&oacute;stico gratuito de 30 minutos.</p>
+                    </div>
+
+                    <form id="leadCaptureForm" class="lead-form" novalidate>
+
+                        <div class="lead-form-row">
+                            <div class="lead-form-group">
+                                <label for="nome" class="lead-label">Nome <span>*</span></label>
+                                <input type="text" id="nome" name="nome" class="lead-input" placeholder="Seu nome"
+                                    autocomplete="name" required>
+                                <span class="lead-error-msg">Campo obrigat&oacute;rio</span>
+                            </div>
+                            <div class="lead-form-group">
+                                <label for="telefone" class="lead-label">WhatsApp <span>*</span></label>
+                                <input type="tel" id="telefone" name="telefone" class="lead-input"
+                                    placeholder="(00) 00000-0000" maxlength="15" autocomplete="tel" required>
+                                <span class="lead-error-msg">Telefone inv&aacute;lido</span>
+                            </div>
+                        </div>
+
+                        <div class="lead-form-row">
+                            <div class="lead-form-group">
+                                <label for="empresa" class="lead-label">Empresa <span>*</span></label>
+                                <input type="text" id="empresa" name="empresa" class="lead-input"
+                                    placeholder="Nome da sua empresa" autocomplete="organization" required>
+                                <span class="lead-error-msg">Campo obrigat&oacute;rio</span>
+                            </div>
+                            <div class="lead-form-group">
+                                <label for="erp" class="lead-label">Sistema utilizado (ERP) <span>*</span></label>
+                                <input type="text" id="erp" name="erp" class="lead-input"
+                                    placeholder="Ex.: TOTVS, Sankhya..." required>
+                                <span class="lead-error-msg">Campo obrigat&oacute;rio</span>
+                            </div>
+                        </div>
+
+                        <div class="lead-form-row">
+                            <div class="lead-form-group">
+                                <label for="email" class="lead-label">E-mail corporativo <span>*</span></label>
+                                <input type="email" id="email" name="email" class="lead-input"
+                                    placeholder="nome@empresa.com.br" autocomplete="email" required>
+                                <span class="lead-error-msg">E-mail inv&aacute;lido</span>
+                            </div>
+                            <div class="lead-form-group">
+                                <label for="plano" class="lead-label">Plano escolhido <span>*</span></label>
+                                <select id="plano" name="plano" class="lead-input lead-select" required>
+                                    <option value="" disabled selected style="background: #0A0714; color: gray;">Selecione o
+                                        plano</option>
+                                    <option value="Controle" style="background: #0A0714;">Controle</option>
+                                    <option value="Inteligência" style="background: #0A0714;">Intelig&ecirc;ncia</option>
+                                    <option value="Performance" style="background: #0A0714;">Performance</option>
+                                </select>
+                                <span class="lead-error-msg">Campo obrigat&oacute;rio</span>
+                            </div>
+                        </div>
+
+                        <div class="lead-form-submit">
+                            <button type="submit" class="lead-submit-btn" id="leadSubmitBtn">
+                                <span class="btn-text">Agendar diagn&oacute;stico estrat&eacute;gico agora</span>
+                                <div class="btn-shimmer"></div>
+                            </button>
+                            <p class="lead-disclaimer">Seus dados est&atilde;o seguros. N&atilde;o enviamos spam.</p>
+                        </div>
+                    </form>
+
+                    <!-- Success Overlay -->
+                    <div class="lead-success-overlay" id="leadSuccessOverlay">
+                        <div class="lead-success-icon"><i data-lucide="check"></i></div>
+                        <h4 class="lead-success-title">Solicita&ccedil;&atilde;o Enviada!</h4>
+                        <p class="lead-success-desc">Nossa equipe recebeu seus dados e entrar&aacute; em contato via
+                            WhatsApp nas pr&oacute;ximas horas para agendar o diagn&oacute;stico.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-glow"></div>
+        <div class="footer-container">
+            <div class="footer-grid">
+
+                <!-- Brand Info -->
+                <div class="footer-brand footer-anim">
+                    <a href="#" class="footer-logo">
+                        <img src="assets/images/marca/Marca Duby.svg" alt="Duby Logo">
+                    </a>
+                    <p class="footer-desc">
+                        N&atilde;o entregamos apenas dashboards. Entregamos estrutura, dire&ccedil;&atilde;o e
+                        acompanhamento estrat&eacute;gico para empresas que desejam previsibilidade e crescimento.
+                    </p>
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/duby.ie/" class="footer-social-link" aria-label="Instagram"
+                            target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/duby-inteligência-e-organização-empresariall"
+                            class="footer-social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="footer-nav-col footer-anim">
+                    <h4 class="footer-nav-title">Navega&ccedil;&atilde;o</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="#inicio">In&iacute;cio</a></li>
+                        <li><a href="#dashboards-home">Nossos Dashboards</a></li>
+                        <li><a href="#funcionalidades">M&oacute;dulos</a></li>
+                        <li><a href="#faq">D&uacute;vidas Frequentes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-nav-col footer-anim">
+                    <h4 class="footer-nav-title">Assessoria</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="#pacotes">Estrutura&ccedil;&atilde;o Financeira</a></li>
+                        <li><a href="#pacotes">Intelig&ecirc;ncia Comercial</a></li>
+                        <li><a href="#pacotes">Gest&atilde;o de Compras</a></li>
+                        <li><a href="#planos">Planos e Pacotes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-nav-col footer-anim">
+                    <h4 class="footer-nav-title">Contato</h4>
+                    <ul class="footer-nav-list">
+                        <li>
+                            <a href="mailto:contato@duby.com.br" class="footer-contact-item">
+                                <i data-lucide="mail"></i> contato@duby.com.br
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://api.whatsapp.com/send/?phone=5579999751825&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
+                                <i data-lucide="phone"></i> (79) 99975-1825
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.google.com/maps/place/Duby/@-10.922524,-37.0667268,17z/data=!3m1!4b1!4m6!3m5!1s0x71ab324ad150661:0x6922ab0ffaa88e81!8m2!3d-10.922524!4d-37.0667268!16s%2Fg%2F11x1nbmczz?entry=ttu&g_ep=EgoyMDI2MDMxNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="footer-contact-item">
+                                <i data-lucide="map-pin"></i> Aracaju, SE
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="footer-bottom footer-anim">
+                <div class="footer-copyright">
+                    &copy; 2026 Duby. Todos os direitos reservados.
+                </div>
+                <a href="https://kaiodesign.com" target="_blank" rel="noopener noreferrer" class="footer-dev">
+                    <span class="footer-dev-text">Desenvolvido por</span>
+                    <img src="assets/images/marca/Kaiodesign.svg" alt="Kaiodesign Logo">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Execution -->
+    <script src="assets/js/main.js?v=20261106"></script>
+    
+    <!-- Webhook Duby -->
+<script>
+(function () {
+  const WEBHOOK_URL = 'https://n8n.sunads.com.br/webhook/duby';
+
+  const form = document.getElementById('leadCaptureForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function (e) {
+    // Impede o envio nativo do formulário: sem isso o navegador recarrega a
+    // página e o redirect para a página de obrigado nunca acontece.
+    e.preventDefault();
+
+    const payload = {
+      plano: form.plano?.value || '',
+      empresa: form.empresa?.value || '',
+      segmento: form.segmento?.value || '',
+      colaboradores: form.colaboradores?.value || '',
+      telefone: form.telefone?.value || '',
+      email: form.email?.value || '',
+      origem: 'Landing Page Duby',
+      url: window.location.href,
+      referrer: document.referrer || 'direto',
+      user_agent: navigator.userAgent,
+      timestamp: new Date().toISOString()
+    };
+
+    // Só dispara se os campos obrigatórios estiverem preenchidos
+    if (!payload.plano || !payload.empresa || !payload.telefone || !payload.email) {
+      return;
+    }
+
+    // Diagnóstico incompleto: não envia e não redireciona. Quem preencheu
+    // errado fica na página, vendo a mensagem de erro do designer.
+    if (!form.checkValidity()) {
+      return;
+    }
+
+    try {
+      // Timeout de 8s: se o n8n demorar ou travar, o redirect acontece do
+      // mesmo jeito e o lead não fica preso na página.
+      await Promise.race([
+        fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          keepalive: true
+        }),
+        new Promise(function (_, reject) {
+          setTimeout(function () { reject(new Error('timeout no webhook')); }, 8000);
+        })
+      ]);
+    } catch (err) {
+      console.error('Erro ao enviar webhook Duby:', err);
+    }
+
+    // Diagnóstico enviado -> página de obrigado, que é onde o evento de
+    // conversão 'Lead' do Meta Pixel é disparado.
+    const qs = new URLSearchParams();
+    qs.set('nome', form.nome?.value || '');
+    qs.set('empresa', payload.empresa || '');
+    qs.set('plano', payload.plano || '');
+    qs.set('envio', payload.timestamp || '');
+    window.location.href = 'obrigado.html?' + qs.toString();
+  }, true); // capture=true: roda antes do handler do main.js
+})();
+</script>
+</body>
+
+</html>
